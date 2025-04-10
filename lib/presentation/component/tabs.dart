@@ -3,13 +3,13 @@ import 'package:recipe_app/ui/color_styles.dart';
 import 'package:recipe_app/ui/text_styles.dart';
 
 class Tabs extends StatelessWidget {
-  final List<String> lables;
+  final List<String> labels;
   final int selectIndex;
   final void Function(int) onValueChange;
 
   const Tabs({
     super.key,
-    required this.lables,
+    required this.labels,
     required this.selectIndex,
     required this.onValueChange,
   });
@@ -22,28 +22,28 @@ class Tabs extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children:
-            lables.map((lable) {
-              final int lableIndex = lables.indexOf(lable);
+            labels.map((label) {
+              final int labelIndex = labels.indexOf(label);
               return GestureDetector(
                 onTap: () {
-                  onValueChange(lableIndex);
+                  onValueChange(labelIndex);
                 },
                 child: AnimatedContainer(
                   duration: const Duration(microseconds: 700),
-                  width: 375 / lables.length,
+                  width: 375 / labels.length,
                   height: 33,
                   decoration: BoxDecoration(
                     color:
-                        lableIndex == selectIndex
+                        labelIndex == selectIndex
                             ? ColorStyle.primary100
                             : null,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
                     child: Text(
-                      lable,
+                      label,
                       style:
-                          lableIndex == selectIndex
+                          labelIndex == selectIndex
                               ? AppTextStyles.smallBold(color: ColorStyle.white)
                               : AppTextStyles.smallBold(
                                 color: ColorStyle.primary80,

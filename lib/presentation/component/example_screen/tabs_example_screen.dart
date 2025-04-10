@@ -41,7 +41,7 @@ class _TabsExampleScreen extends State<TabsExampleScreen> {
           children: [
             const SizedBox(height: 16),
             Tabs(
-              lables: const ['Label1', 'Label2'],
+              labels: const ['Label1', 'Label2'],
               selectIndex: selectedIndex1,
               onValueChange: onValueChange1,
             ),
@@ -59,7 +59,7 @@ class _TabsExampleScreen extends State<TabsExampleScreen> {
             ),
 
             Tabs(
-              lables: const ['Lable1', 'Lable2', 'Lable3'],
+              labels: const ['Label1', 'Label2', 'Label3'],
               selectIndex: selectedIndex2,
               onValueChange: onValueChange2,
             ),
@@ -78,7 +78,7 @@ class _TabsExampleScreen extends State<TabsExampleScreen> {
             ),
 
             Tabs(
-              lables: const ['Lable1', 'Lable2', 'Lable3', 'Lable4'],
+              labels: const ['Label1', 'Label2', 'Label3', 'Label4'],
               selectIndex: selectedIndex3,
               onValueChange: onValueChange3,
             ),

@@ -9,7 +9,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: Tabs(
-              lables: const ['Lable1', 'Lable2'],
+              labels: const ['Label1', 'Label2'],
               selectIndex: 0,
               onValueChange: (_) {},
             ),
@@ -17,8 +17,8 @@ void main() {
         ),
       );
 
-      expect(find.text('Lable1'), findsOneWidget);
-      expect(find.text('Lable2'), findsOneWidget);
+      expect(find.text('Label1'), findsOneWidget);
+      expect(find.text('Label2'), findsOneWidget);
     });
 
     testWidgets('Tabs 탭 클릭 동작 확인', (tester) async {
@@ -32,7 +32,7 @@ void main() {
               builder: (context, setStateCallback) {
                 setState = setStateCallback;
                 return Tabs(
-                  lables: const ['Lable1', 'Lable2'],
+                  labels: const ['Label1', 'Label2'],
                   selectIndex: selectedIndex,
                   onValueChange: (index) {
                     setState(() {
@@ -46,7 +46,7 @@ void main() {
         ),
       );
 
-      await tester.tap(find.text('Lable2'));
+      await tester.tap(find.text('Label2'));
       await tester.pumpAndSettle();
       expect(selectedIndex, 1);
     });

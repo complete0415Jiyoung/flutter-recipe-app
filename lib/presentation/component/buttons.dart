@@ -55,7 +55,7 @@ class Buttons extends StatelessWidget {
     double buttonWidth;
     switch (size) {
       case ButtonSize.big:
-        buttonWidth = screenWidth * 0.85;
+        buttonWidth = double.infinity;
         break;
       case ButtonSize.medium:
         buttonWidth = screenWidth * 0.70;
@@ -91,7 +91,7 @@ class Buttons extends StatelessWidget {
               ),
             ),
             if (showIcon) ...[
-              const SizedBox(width: 3),
+              const SizedBox(width: 11),
               Icon(icon, color: ColorStyle.white, size: 20),
             ],
           ],

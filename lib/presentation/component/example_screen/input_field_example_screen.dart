@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/presentation/component/input_field.dart';
+import 'package:recipe_app/ui/text_styles.dart';
 
 class InputFieldExampleScreen extends StatelessWidget {
   const InputFieldExampleScreen({super.key});
@@ -13,19 +14,19 @@ class InputFieldExampleScreen extends StatelessWidget {
       body: Column(
         children: [
           InputField(
-            label: 'Lable',
+            label: 'Label 1',
             placeHolder: 'PlaceHolder',
             value: '',
             onValueChange: (value) {},
           ),
           InputField(
-            label: 'Lable',
+            label: 'Label 2',
             placeHolder: 'PlaceHolder',
             value: 'PlaceHolder',
             onValueChange: (value) {},
           ),
           InputField(
-            label: 'Lable',
+            label: 'Label 3',
             placeHolder: 'PlaceHolder',
             value: 'PlaceHolder',
             isDisabled: true,
