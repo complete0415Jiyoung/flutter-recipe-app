@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/presentation/component/buttons.dart';
+import 'package:recipe_app/ui/text_styles.dart';
 
 class ButtonExampleScreen extends StatelessWidget {
   const ButtonExampleScreen({super.key});
@@ -7,7 +8,9 @@ class ButtonExampleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Button 예제')),
+      appBar: AppBar(
+        title: Text('Button 예제', style: AppTextStyles.largeBold()),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Center(

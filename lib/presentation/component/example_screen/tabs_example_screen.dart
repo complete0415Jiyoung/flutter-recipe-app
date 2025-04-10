@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/presentation/component/tabs.dart';
+import 'package:recipe_app/ui/text_styles.dart';
 
 class TabsExampleScreen extends StatefulWidget {
   const TabsExampleScreen({super.key});
@@ -34,7 +35,7 @@ class _TabsExampleScreen extends State<TabsExampleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Tabs 예제')),
+      appBar: AppBar(title: Text('Tabs 예제', style: AppTextStyles.largeBold())),
       body: SingleChildScrollView(
         child: Column(
           children: [

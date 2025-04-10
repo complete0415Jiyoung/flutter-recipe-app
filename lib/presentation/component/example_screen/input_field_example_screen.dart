@@ -7,7 +7,9 @@ class InputFieldExampleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('InputField 예제')),
+      appBar: AppBar(
+        title: Text('InputField 예제', style: AppTextStyles.largeBold()),
+      ),
       body: Column(
         children: [
           InputField(
