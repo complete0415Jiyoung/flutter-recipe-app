@@ -28,8 +28,10 @@ class Tabs extends StatelessWidget {
                 onTap: () {
                   onValueChange(labelIndex);
                 },
-                child: AnimatedContainer(
-                  duration: const Duration(microseconds: 700),
+
+                child: Container(
+                  // child: AnimatedContainer(
+                  // duration: const Duration(microseconds: 700),
                   width: 375 / labels.length,
                   height: 33,
                   decoration: BoxDecoration(
