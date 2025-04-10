@@ -40,7 +40,7 @@ class _TabsExampleScreen extends State<TabsExampleScreen> {
           children: [
             const SizedBox(height: 16),
             Tabs(
-              lables: const ['Lable1', 'Lable2'],
+              lables: const ['Label1', 'Label2'],
               selectIndex: selectedIndex1,
               onValueChange: onValueChange1,
             ),
