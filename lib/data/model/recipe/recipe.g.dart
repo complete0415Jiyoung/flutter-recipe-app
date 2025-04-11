@@ -7,6 +7,7 @@ part of 'recipe.dart';
 // **************************************************************************
 
 Recipe _$RecipeFromJson(Map<String, dynamic> json) => Recipe(
+  userName: json['userName'] as String,
   recipeId: (json['recipeId'] as num).toInt(),
   createdAt: DateTime.parse(json['createdAt'] as String),
   title: json['title'] as String,
@@ -16,8 +17,15 @@ Recipe _$RecipeFromJson(Map<String, dynamic> json) => Recipe(
           .toList(),
   time: (json['time'] as num).toInt(),
   rating: (json['rating'] as num).toDouble(),
-  user: User.fromJson(json['user'] as Map<String, dynamic>),
-  media: Media.fromJson(json['media'] as Map<String, dynamic>),
+  thunbNailUrl: json['thunbNailUrl'] as String,
+  user:
+      json['user'] == null
+          ? null
+          : User.fromJson(json['user'] as Map<String, dynamic>),
+  media:
+      json['media'] == null
+          ? null
+          : Media.fromJson(json['media'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$RecipeToJson(Recipe instance) => <String, dynamic>{
@@ -26,7 +34,9 @@ Map<String, dynamic> _$RecipeToJson(Recipe instance) => <String, dynamic>{
   'ingredient': instance.ingredient.map((e) => e.toJson()).toList(),
   'time': instance.time,
   'rating': instance.rating,
-  'user': instance.user.toJson(),
-  'media': instance.media.toJson(),
+  'userName': instance.userName,
+  'thunbNailUrl': instance.thunbNailUrl,
+  'user': instance.user?.toJson(),
+  'media': instance.media?.toJson(),
   'createdAt': instance.createdAt.toIso8601String(),
 };

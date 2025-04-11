@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Recipe {
 
- int get recipeId; String get title; List<Ingredient> get ingredient; int get time; double get rating; User get user; Media get media; DateTime get createdAt;
+ int get recipeId; String get title; List<Ingredient> get ingredient; int get time; double get rating; String get userName; String get thunbNailUrl; User? get user; Media? get media; DateTime get createdAt;
 /// Create a copy of Recipe
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -27,16 +27,16 @@ $RecipeCopyWith<Recipe> get copyWith => _$RecipeCopyWithImpl<Recipe>(this as Rec
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Recipe&&(identical(other.recipeId, recipeId) || other.recipeId == recipeId)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.ingredient, ingredient)&&(identical(other.time, time) || other.time == time)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.user, user) || other.user == user)&&(identical(other.media, media) || other.media == media)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Recipe&&(identical(other.recipeId, recipeId) || other.recipeId == recipeId)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.ingredient, ingredient)&&(identical(other.time, time) || other.time == time)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.userName, userName) || other.userName == userName)&&(identical(other.thunbNailUrl, thunbNailUrl) || other.thunbNailUrl == thunbNailUrl)&&(identical(other.user, user) || other.user == user)&&(identical(other.media, media) || other.media == media)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,recipeId,title,const DeepCollectionEquality().hash(ingredient),time,rating,user,media,createdAt);
+int get hashCode => Object.hash(runtimeType,recipeId,title,const DeepCollectionEquality().hash(ingredient),time,rating,userName,thunbNailUrl,user,media,createdAt);
 
 @override
 String toString() {
-  return 'Recipe(recipeId: $recipeId, title: $title, ingredient: $ingredient, time: $time, rating: $rating, user: $user, media: $media, createdAt: $createdAt)';
+  return 'Recipe(recipeId: $recipeId, title: $title, ingredient: $ingredient, time: $time, rating: $rating, userName: $userName, thunbNailUrl: $thunbNailUrl, user: $user, media: $media, createdAt: $createdAt)';
 }
 
 
@@ -47,7 +47,7 @@ abstract mixin class $RecipeCopyWith<$Res>  {
   factory $RecipeCopyWith(Recipe value, $Res Function(Recipe) _then) = _$RecipeCopyWithImpl;
 @useResult
 $Res call({
- int recipeId, DateTime createdAt, String title, List<Ingredient> ingredient, int time, double rating, User user, Media media
+ String userName, int recipeId, DateTime createdAt, String title, List<Ingredient> ingredient, int time, double rating, String thunbNailUrl, User? user, Media? media
 });
 
 
@@ -64,17 +64,19 @@ class _$RecipeCopyWithImpl<$Res>
 
 /// Create a copy of Recipe
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? recipeId = null,Object? createdAt = null,Object? title = null,Object? ingredient = null,Object? time = null,Object? rating = null,Object? user = null,Object? media = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? userName = null,Object? recipeId = null,Object? createdAt = null,Object? title = null,Object? ingredient = null,Object? time = null,Object? rating = null,Object? thunbNailUrl = null,Object? user = freezed,Object? media = freezed,}) {
   return _then(Recipe(
-recipeId: null == recipeId ? _self.recipeId : recipeId // ignore: cast_nullable_to_non_nullable
+userName: null == userName ? _self.userName : userName // ignore: cast_nullable_to_non_nullable
+as String,recipeId: null == recipeId ? _self.recipeId : recipeId // ignore: cast_nullable_to_non_nullable
 as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,ingredient: null == ingredient ? _self.ingredient : ingredient // ignore: cast_nullable_to_non_nullable
 as List<Ingredient>,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as int,rating: null == rating ? _self.rating : rating // ignore: cast_nullable_to_non_nullable
-as double,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as User,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
-as Media,
+as double,thunbNailUrl: null == thunbNailUrl ? _self.thunbNailUrl : thunbNailUrl // ignore: cast_nullable_to_non_nullable
+as String,user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
+as User?,media: freezed == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
+as Media?,
   ));
 }
 

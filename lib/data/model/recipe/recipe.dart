@@ -16,22 +16,26 @@ class Recipe with _$Recipe {
   final List<Ingredient> ingredient;
   final int time;
   final double rating;
-  final User user;
-  final Media media;
+  final String userName;
+  final String thunbNailUrl;
+  final User? user;
+  final Media? media;
   final DateTime createdAt;
   // final List<Category> categoryList;
   // final List<Review> reviews;
   // final List<Procedure> procedures;
 
-  Recipe({
+  const Recipe({
+    required this.userName,
     required this.recipeId,
     required this.createdAt,
     required this.title,
     required this.ingredient,
     required this.time,
     required this.rating,
-    required this.user,
-    required this.media,
+    required this.thunbNailUrl,
+    this.user,
+    this.media,
     // recipeId this.procedures,
   });
 
