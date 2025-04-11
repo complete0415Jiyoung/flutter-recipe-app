@@ -13,7 +13,11 @@ class SavedRecipesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorStyle.white,
+
       appBar: AppBar(
+        surfaceTintColor: ColorStyle.white,
+        backgroundColor: ColorStyle.white,
+        automaticallyImplyLeading: false,
         title: Text(
           'Saved recipe',
           style: AppTextStyles.mediumBold(color: ColorStyle.label),

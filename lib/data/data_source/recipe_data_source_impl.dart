@@ -13,7 +13,6 @@ class RecipeDataSourceImpl implements RecipeDataSource {
     try {
       final jsonString = await rootBundle.loadString(path);
       final Map<String, dynamic> jsonMap = jsonDecode(jsonString);
-      print(jsonMap['recipes']);
       final List<dynamic> recipesJson = jsonMap['recipes'];
       return recipesJson.map((e) => RecipeDto.fromJson(e)).toList();
     } catch (e) {

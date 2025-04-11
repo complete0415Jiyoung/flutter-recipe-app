@@ -10,8 +10,8 @@ import 'package:recipe_app/presentation/example_screen/rating_dialog_example_scr
 import 'package:recipe_app/presentation/example_screen/recipe_list_example_screen.dart';
 import 'package:recipe_app/presentation/example_screen/tabs_example_screen.dart';
 import 'package:recipe_app/presentation/example_screen/text_style_example_screen.dart';
-import 'package:recipe_app/presentation/screen/saved_recipes/saved_recipes_screen.dart';
-import 'package:recipe_app/presentation/screen/saved_recipes/saved_recipes_view_model.dart';
+
+import 'package:recipe_app/ui/color_styles.dart';
 import 'package:recipe_app/ui/text_styles.dart';
 
 class PreviewMain extends StatelessWidget {
@@ -20,6 +20,15 @@ class PreviewMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorStyle.white,
+      appBar: AppBar(
+        surfaceTintColor: ColorStyle.white,
+        backgroundColor: ColorStyle.white,
+        title: Text(
+          '레시피 UI 미리보기',
+          style: AppTextStyles.mediumBold(color: ColorStyle.label),
+        ),
+      ),
       body: SafeArea(
         child: ListView(
           children: [
@@ -141,24 +150,24 @@ class PreviewMain extends StatelessWidget {
                 );
               },
             ),
-            ListTile(
-              title: Text('📍Saved recipe', style: AppTextStyles.largeBold()),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder:
-                        (context) => SavedRecipesScreen(
-                          viewModel: SavedRecipesViewModel(
-                            recipeRepository: RecipeRepositoryImpl(
-                              dataSource: RecipeDataSourceImpl(),
-                            ),
-                          ),
-                        )..viewModel.fetchSavedRecipe(),
-                  ),
-                );
-              },
-            ),
+            // ListTile(
+            //   title: Text('📍Saved recipe', style: AppTextStyles.largeBold()),
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder:
+            //             (context) => SavedRecipesScreen(
+            //               viewModel: SavedRecipesViewModel(
+            //                 recipeRepository: RecipeRepositoryImpl(
+            //                   dataSource: RecipeDataSourceImpl(),
+            //                 ),
+            //               ),
+            //             )..viewModel.fetchSavedRecipe(),
+            //       ),
+            //     );
+            //   },
+            // ),
           ],
         ),
       ),

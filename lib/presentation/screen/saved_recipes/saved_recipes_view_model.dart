@@ -18,7 +18,6 @@ class SavedRecipesViewModel with ChangeNotifier {
   Future<void> fetchSavedRecipe() async {
     // 로딩 시작 알림
     _isLoading = true;
-    print('안녕1');
     notifyListeners();
     // 데이터 가지고 오고 로딩 꺼짐 알림
     _savedRecipes = await _recipeRepository.getRecipes();
