@@ -4,8 +4,6 @@ import 'package:recipe_app/data/model/ingredient.dart';
 import 'package:recipe_app/data/model/media.dart';
 import 'package:recipe_app/data/model/recipe.dart';
 import 'package:recipe_app/data/model/user.dart';
-import 'package:recipe_app/presentation/component/buttons.dart';
-import 'package:recipe_app/presentation/component/ingredient_item.dart';
 import 'package:recipe_app/presentation/component/recipe_card.dart';
 
 void main() {
