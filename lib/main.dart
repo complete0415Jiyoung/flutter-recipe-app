@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recipe_app/presentation/component/example_screen/preview_main.dart';
+import 'package:recipe_app/presentation/example_screen/preview_main.dart';
 
 void main() {
   runApp(const MyApp());

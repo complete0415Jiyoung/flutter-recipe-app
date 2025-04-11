@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/presentation/component/example_screen/button_example_screen.dart';
-import 'package:recipe_app/presentation/component/example_screen/color_example_screen.dart';
-import 'package:recipe_app/presentation/component/example_screen/filter_rating_button_example_screen.dart';
-import 'package:recipe_app/presentation/component/example_screen/ingredient_list_example_screen.dart';
-import 'package:recipe_app/presentation/component/example_screen/input_field_example_screen.dart';
-import 'package:recipe_app/presentation/component/example_screen/rating_dialog_example_screen.dart';
-import 'package:recipe_app/presentation/component/example_screen/recipe_list_example_screen.dart';
-import 'package:recipe_app/presentation/component/example_screen/tabs_example_screen.dart';
-import 'package:recipe_app/presentation/component/example_screen/text_style_example_screen.dart';
+import 'package:recipe_app/presentation/example_screen/button_example_screen.dart';
+import 'package:recipe_app/presentation/example_screen/color_example_screen.dart';
+import 'package:recipe_app/presentation/example_screen/filter_rating_button_example_screen.dart';
+import 'package:recipe_app/presentation/example_screen/ingredient_list_example_screen.dart';
+import 'package:recipe_app/presentation/example_screen/input_field_example_screen.dart';
+import 'package:recipe_app/presentation/example_screen/rating_dialog_example_screen.dart';
+import 'package:recipe_app/presentation/example_screen/recipe_list_example_screen.dart';
+import 'package:recipe_app/presentation/example_screen/tabs_example_screen.dart';
+import 'package:recipe_app/presentation/example_screen/text_style_example_screen.dart';
 import 'package:recipe_app/ui/text_styles.dart';
 
 class PreviewMain extends StatelessWidget {
