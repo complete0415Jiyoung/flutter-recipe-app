@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/data/data_source/recipe_data_source_impl.dart';
+import 'package:recipe_app/data/repository/recipe_repository_impl.dart';
 import 'package:recipe_app/presentation/example_screen/button_example_screen.dart';
 import 'package:recipe_app/presentation/example_screen/color_example_screen.dart';
 import 'package:recipe_app/presentation/example_screen/filter_rating_button_example_screen.dart';
@@ -8,6 +10,8 @@ import 'package:recipe_app/presentation/example_screen/rating_dialog_example_scr
 import 'package:recipe_app/presentation/example_screen/recipe_list_example_screen.dart';
 import 'package:recipe_app/presentation/example_screen/tabs_example_screen.dart';
 import 'package:recipe_app/presentation/example_screen/text_style_example_screen.dart';
+import 'package:recipe_app/presentation/screen/saved_recipes/saved_recipes_screen.dart';
+import 'package:recipe_app/presentation/screen/saved_recipes/saved_recipes_view_model.dart';
 import 'package:recipe_app/ui/text_styles.dart';
 
 class PreviewMain extends StatelessWidget {
@@ -133,6 +137,24 @@ class PreviewMain extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const RatingDialogExampleScreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: Text('📍Saved recipe', style: AppTextStyles.largeBold()),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => SavedRecipesScreen(
+                          viewModel: SavedRecipesViewModel(
+                            recipeRepository: RecipeRepositoryImpl(
+                              dataSource: RecipeDataSourceImpl(),
+                            ),
+                          ),
+                        )..viewModel.fetchSavedRecipe(),
                   ),
                 );
               },
