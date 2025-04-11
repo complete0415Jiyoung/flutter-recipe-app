@@ -13,13 +13,20 @@ class RecipeListExampleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Recipe> recipes = [
       Recipe(
+        recipeId: 1,
         title: "Spice roasted chicken with flavored rice",
         ingredient: [
           Ingredient(imageUrl: 'imageUrl', name: 'name', weight: 20),
         ],
         time: 20,
         rating: 4.0,
-        user: User(name: "Mark Kelvin"),
+        user: User(
+          name: "Mark Kelvin",
+          id: 1,
+          email: 'test@email.com',
+          userId: 'user1',
+          addres: "Lagos, Nigeria",
+        ),
         media: Media(
           imageId: 'imageId',
           thunbNailUrl:
@@ -27,15 +34,23 @@ class RecipeListExampleScreen extends StatelessWidget {
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
+        createdAt: DateTime.now(),
       ),
       Recipe(
+        recipeId: 2,
         title: "Spice roasted chicken with flavored rice",
         ingredient: [
           Ingredient(imageUrl: 'imageUrl', name: 'name', weight: 20),
         ],
         time: 20,
         rating: 4.0,
-        user: User(name: "Mark Kelvin"),
+        user: User(
+          name: "Mark Kelvin",
+          id: 1,
+          email: 'test@email.com',
+          userId: 'user1',
+          addres: "Lagos, Nigeria",
+        ),
         media: Media(
           imageId: 'imageId',
           thunbNailUrl:
@@ -43,15 +58,23 @@ class RecipeListExampleScreen extends StatelessWidget {
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
+        createdAt: DateTime.now(),
       ),
       Recipe(
+        recipeId: 3,
         title: "Spice roasted chicken with flavored rice",
         ingredient: [
           Ingredient(imageUrl: 'imageUrl', name: 'name', weight: 20),
         ],
         time: 20,
         rating: 4.0,
-        user: User(name: "Mark Kelvin"),
+        user: User(
+          name: "Mark Kelvin",
+          id: 1,
+          email: 'test@email.com',
+          userId: 'user1',
+          addres: "Lagos, Nigeria",
+        ),
         media: Media(
           imageId: 'imageId',
           thunbNailUrl:
@@ -59,15 +82,23 @@ class RecipeListExampleScreen extends StatelessWidget {
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
+        createdAt: DateTime.now(),
       ),
       Recipe(
+        recipeId: 4,
         title: "Spice roasted chicken with flavored rice",
         ingredient: [
           Ingredient(imageUrl: 'imageUrl', name: 'name', weight: 20),
         ],
         time: 20,
         rating: 4.0,
-        user: User(name: "Mark Kelvin"),
+        user: User(
+          name: "Mark Kelvin",
+          id: 1,
+          email: 'test@email.com',
+          userId: 'user1',
+          addres: "Lagos, Nigeria",
+        ),
         media: Media(
           imageId: 'imageId',
           thunbNailUrl:
@@ -75,15 +106,23 @@ class RecipeListExampleScreen extends StatelessWidget {
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
+        createdAt: DateTime.now(),
       ),
       Recipe(
+        recipeId: 5,
         title: "Spice roasted chicken with flavored rice",
         ingredient: [
           Ingredient(imageUrl: 'imageUrl', name: 'name', weight: 20),
         ],
         time: 20,
         rating: 4.0,
-        user: User(name: "Mark Kelvin"),
+        user: User(
+          name: "Mark Kelvin",
+          id: 1,
+          email: 'test@email.com',
+          userId: 'user1',
+          addres: "Lagos, Nigeria",
+        ),
         media: Media(
           imageId: 'imageId',
           thunbNailUrl:
@@ -91,6 +130,7 @@ class RecipeListExampleScreen extends StatelessWidget {
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
+        createdAt: DateTime.now(),
       ),
     ];
 
