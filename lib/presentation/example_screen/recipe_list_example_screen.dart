@@ -35,6 +35,9 @@ class RecipeListExampleScreen extends StatelessWidget {
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
+        userName: 'Mark Kelvin',
+        thunbNailUrl:
+            "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
       Recipe(
         recipeId: 2,
@@ -59,6 +62,9 @@ class RecipeListExampleScreen extends StatelessWidget {
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
+        userName: 'Mark Kelvin',
+        thunbNailUrl:
+            "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
       Recipe(
         recipeId: 3,
@@ -83,6 +89,9 @@ class RecipeListExampleScreen extends StatelessWidget {
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
+        userName: 'Mark Kelvin',
+        thunbNailUrl:
+            "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
       Recipe(
         recipeId: 4,
@@ -107,6 +116,9 @@ class RecipeListExampleScreen extends StatelessWidget {
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
+        userName: 'Mark Kelvin',
+        thunbNailUrl:
+            "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
       Recipe(
         recipeId: 5,
@@ -131,6 +143,9 @@ class RecipeListExampleScreen extends StatelessWidget {
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
+        userName: 'Mark Kelvin',
+        thunbNailUrl:
+            "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
     ];
 

@@ -31,6 +31,8 @@ void main() {
         ),
         recipeId: 1,
         createdAt: DateTime.now(),
+        userName: 'Mark Kelvin',
+        thunbNailUrl: 'assets/images/tomatos.png',
       );
 
       await tester.pumpWidget(
