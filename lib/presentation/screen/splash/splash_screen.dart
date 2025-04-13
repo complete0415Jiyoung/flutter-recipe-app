@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen>
     // 애니메이션 컨트롤러 확대
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 6000),
+      duration: const Duration(milliseconds: 3000),
     )..forward();
     // 1.0 → 1.2 (조금 확대되는 정도)
     _scaleAnimation = Tween<double>(

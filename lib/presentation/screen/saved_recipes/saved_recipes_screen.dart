@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/presentation/component/recipe_card.dart';
+import 'package:recipe_app/presentation/component/skeleton_effect.dart';
 import 'package:recipe_app/presentation/screen/saved_recipes/saved_recipes_view_model.dart';
+import 'package:recipe_app/presentation/screen/saved_recipes/skeleton_card.dart';
 import 'package:recipe_app/ui/color_styles.dart';
 import 'package:recipe_app/ui/text_styles.dart';
 
@@ -29,11 +31,26 @@ class SavedRecipesScreen extends StatelessWidget {
           listenable: viewModel,
           builder: (context, child) {
             if (viewModel.isLoading) {
-              return const Center(child: CircularProgressIndicator());
+              return ListView.builder(
+                itemCount: 5, // 임시로 5개 데이터
+                itemBuilder:
+                    (context, index) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: const SkeletonEffect(
+                        width: double.infinity,
+                        height: 150,
+                      ),
+                    ),
+              );
             }
 
             if (viewModel.savedRecipes.isEmpty) {
-              return const Center(child: Text('저장된 레시피가 없습니다.'));
+              return Center(
+                child: Text(
+                  '저장된 레시피가 없습니다.',
+                  style: AppTextStyles.mediumBold(),
+                ),
+              );
             }
 
             return ListView.builder(
