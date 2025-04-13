@@ -13,7 +13,7 @@ class User with _$User {
   final String name;
   final String email;
   final String? password;
-  final String addres;
+  final String address;
   final String? imageUrl;
   final String? introduction;
   final String? job;
@@ -22,7 +22,7 @@ class User with _$User {
     required this.userId,
     required this.name,
     required this.email,
-    required this.addres,
+    required this.address,
     this.password,
     this.imageUrl,
     this.introduction,

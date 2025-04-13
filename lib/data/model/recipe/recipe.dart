@@ -17,7 +17,7 @@ class Recipe with _$Recipe {
   final int time;
   final double rating;
   final String userName;
-  final String thunbNailUrl;
+  final String thumbNailUrl;
   final User? user;
   final Media? media;
   final DateTime createdAt;
@@ -33,7 +33,7 @@ class Recipe with _$Recipe {
     required this.ingredient,
     required this.time,
     required this.rating,
-    required this.thunbNailUrl,
+    required this.thumbNailUrl,
     this.user,
     this.media,
     // recipeId this.procedures,

@@ -23,7 +23,7 @@ extension RecipeMapper on RecipeDto {
       rating: rating ?? 0.0,
       userName: chef ?? '알 수 없음',
       createdAt: DateTime.now(),
-      thunbNailUrl: image ?? '',
+      thumbNailUrl: image ?? '',
     );
   }
 }

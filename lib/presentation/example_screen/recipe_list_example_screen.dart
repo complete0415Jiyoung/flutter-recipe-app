@@ -25,18 +25,18 @@ class RecipeListExampleScreen extends StatelessWidget {
           id: 1,
           email: 'test@email.com',
           userId: 'user1',
-          addres: "Lagos, Nigeria",
+          address: "Lagos, Nigeria",
         ),
         media: Media(
           imageId: 'imageId',
-          thunbNailUrl:
+          thumbNailUrl:
               "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
-        thunbNailUrl:
+        thumbNailUrl:
             "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
       Recipe(
@@ -52,18 +52,18 @@ class RecipeListExampleScreen extends StatelessWidget {
           id: 1,
           email: 'test@email.com',
           userId: 'user1',
-          addres: "Lagos, Nigeria",
+          address: "Lagos, Nigeria",
         ),
         media: Media(
           imageId: 'imageId',
-          thunbNailUrl:
+          thumbNailUrl:
               "https://cdn.pixabay.com/photo/2019/09/07/19/02/spanish-paella-4459519_1280.jpg",
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
-        thunbNailUrl:
+        thumbNailUrl:
             "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
       Recipe(
@@ -79,18 +79,18 @@ class RecipeListExampleScreen extends StatelessWidget {
           id: 1,
           email: 'test@email.com',
           userId: 'user1',
-          addres: "Lagos, Nigeria",
+          address: "Lagos, Nigeria",
         ),
         media: Media(
           imageId: 'imageId',
-          thunbNailUrl:
+          thumbNailUrl:
               "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_1280.jpg",
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
-        thunbNailUrl:
+        thumbNailUrl:
             "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
       Recipe(
@@ -106,18 +106,18 @@ class RecipeListExampleScreen extends StatelessWidget {
           id: 1,
           email: 'test@email.com',
           userId: 'user1',
-          addres: "Lagos, Nigeria",
+          address: "Lagos, Nigeria",
         ),
         media: Media(
           imageId: 'imageId',
-          thunbNailUrl:
+          thumbNailUrl:
               "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_1280.jpg",
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
-        thunbNailUrl:
+        thumbNailUrl:
             "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
       Recipe(
@@ -133,18 +133,18 @@ class RecipeListExampleScreen extends StatelessWidget {
           id: 1,
           email: 'test@email.com',
           userId: 'user1',
-          addres: "Lagos, Nigeria",
+          address: "Lagos, Nigeria",
         ),
         media: Media(
           imageId: 'imageId',
-          thunbNailUrl:
+          thumbNailUrl:
               "https://cdn.pixabay.com/photo/2016/11/22/18/52/cake-1850011_1280.jpg",
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
-        thunbNailUrl:
+        thumbNailUrl:
             "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
       ),
     ];

@@ -17,7 +17,7 @@ Recipe _$RecipeFromJson(Map<String, dynamic> json) => Recipe(
           .toList(),
   time: (json['time'] as num).toInt(),
   rating: (json['rating'] as num).toDouble(),
-  thunbNailUrl: json['thunbNailUrl'] as String,
+  thumbNailUrl: json['thumbNailUrl'] as String,
   user:
       json['user'] == null
           ? null
@@ -35,7 +35,7 @@ Map<String, dynamic> _$RecipeToJson(Recipe instance) => <String, dynamic>{
   'time': instance.time,
   'rating': instance.rating,
   'userName': instance.userName,
-  'thunbNailUrl': instance.thunbNailUrl,
+  'thumbNailUrl': instance.thumbNailUrl,
   'user': instance.user?.toJson(),
   'media': instance.media?.toJson(),
   'createdAt': instance.createdAt.toIso8601String(),

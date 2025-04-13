@@ -18,9 +18,9 @@ class RecipeCard extends StatelessWidget {
         children: [
           Positioned.fill(
             child:
-                recipe.thunbNailUrl.startsWith('http')
-                    ? RecipeImageLoader(imageUrl: recipe.thunbNailUrl)
-                    : Image.asset(recipe.thunbNailUrl, fit: BoxFit.cover),
+                recipe.thumbNailUrl.startsWith('http')
+                    ? RecipeImageLoader(imageUrl: recipe.thumbNailUrl)
+                    : Image.asset(recipe.thumbNailUrl, fit: BoxFit.cover),
           ),
           Positioned.fill(
             child: Container(

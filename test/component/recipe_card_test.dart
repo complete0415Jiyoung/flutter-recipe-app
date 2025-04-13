@@ -21,18 +21,18 @@ void main() {
           id: 1,
           userId: 'user1',
           email: 'user1@email.com',
-          addres: '',
+          address: '',
         ),
         media: Media(
           imageId: 'imageId',
-          thunbNailUrl: 'assets/images/tomatos.png',
+          thumbNailUrl: 'assets/images/tomatos.png',
           imageUrl: 'imageUrl',
           recipeVideoUrl: 'recipeVideoUrl',
         ),
         recipeId: 1,
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
-        thunbNailUrl: 'assets/images/tomatos.png',
+        thumbNailUrl: 'assets/images/tomatos.png',
       );
 
       await tester.pumpWidget(

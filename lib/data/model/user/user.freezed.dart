@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$User {
 
- int get id; String get userId; String get name; String get email; String? get password; String get addres; String? get imageUrl; String? get introduction; String? get job;
+ int get id; String get userId; String get name; String get email; String? get password; String get address; String? get imageUrl; String? get introduction; String? get job;
 /// Create a copy of User
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -27,16 +27,16 @@ $UserCopyWith<User> get copyWith => _$UserCopyWithImpl<User>(this as User, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is User&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.addres, addres) || other.addres == addres)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.introduction, introduction) || other.introduction == introduction)&&(identical(other.job, job) || other.job == job));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is User&&(identical(other.id, id) || other.id == id)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.address, address) || other.address == address)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.introduction, introduction) || other.introduction == introduction)&&(identical(other.job, job) || other.job == job));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,userId,name,email,password,addres,imageUrl,introduction,job);
+int get hashCode => Object.hash(runtimeType,id,userId,name,email,password,address,imageUrl,introduction,job);
 
 @override
 String toString() {
-  return 'User(id: $id, userId: $userId, name: $name, email: $email, password: $password, addres: $addres, imageUrl: $imageUrl, introduction: $introduction, job: $job)';
+  return 'User(id: $id, userId: $userId, name: $name, email: $email, password: $password, address: $address, imageUrl: $imageUrl, introduction: $introduction, job: $job)';
 }
 
 
@@ -47,7 +47,7 @@ abstract mixin class $UserCopyWith<$Res>  {
   factory $UserCopyWith(User value, $Res Function(User) _then) = _$UserCopyWithImpl;
 @useResult
 $Res call({
- int id, String userId, String name, String email, String addres, String? password, String? imageUrl, String? introduction, String? job
+ int id, String userId, String name, String email, String address, String? password, String? imageUrl, String? introduction, String? job
 });
 
 
@@ -64,13 +64,13 @@ class _$UserCopyWithImpl<$Res>
 
 /// Create a copy of User
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? userId = null,Object? name = null,Object? email = null,Object? addres = null,Object? password = freezed,Object? imageUrl = freezed,Object? introduction = freezed,Object? job = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? userId = null,Object? name = null,Object? email = null,Object? address = null,Object? password = freezed,Object? imageUrl = freezed,Object? introduction = freezed,Object? job = freezed,}) {
   return _then(User(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,addres: null == addres ? _self.addres : addres // ignore: cast_nullable_to_non_nullable
+as String,address: null == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
 as String,password: freezed == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as String?,imageUrl: freezed == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
 as String?,introduction: freezed == introduction ? _self.introduction : introduction // ignore: cast_nullable_to_non_nullable

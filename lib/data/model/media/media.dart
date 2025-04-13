@@ -9,12 +9,12 @@ part 'media.g.dart';
 @JsonSerializable(explicitToJson: true)
 class Media with _$Media {
   final String imageId;
-  final String thunbNailUrl;
+  final String thumbNailUrl;
   final String imageUrl;
   final String recipeVideoUrl;
   Media({
     required this.imageId,
-    required this.thunbNailUrl,
+    required this.thumbNailUrl,
     required this.imageUrl,
     required this.recipeVideoUrl,
   });

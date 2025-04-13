@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Media {
 
- String get imageId; String get thunbNailUrl; String get imageUrl; String get recipeVideoUrl;
+ String get imageId; String get thumbNailUrl; String get imageUrl; String get recipeVideoUrl;
 /// Create a copy of Media
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -27,16 +27,16 @@ $MediaCopyWith<Media> get copyWith => _$MediaCopyWithImpl<Media>(this as Media, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Media&&(identical(other.imageId, imageId) || other.imageId == imageId)&&(identical(other.thunbNailUrl, thunbNailUrl) || other.thunbNailUrl == thunbNailUrl)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.recipeVideoUrl, recipeVideoUrl) || other.recipeVideoUrl == recipeVideoUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Media&&(identical(other.imageId, imageId) || other.imageId == imageId)&&(identical(other.thumbNailUrl, thumbNailUrl) || other.thumbNailUrl == thumbNailUrl)&&(identical(other.imageUrl, imageUrl) || other.imageUrl == imageUrl)&&(identical(other.recipeVideoUrl, recipeVideoUrl) || other.recipeVideoUrl == recipeVideoUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,imageId,thunbNailUrl,imageUrl,recipeVideoUrl);
+int get hashCode => Object.hash(runtimeType,imageId,thumbNailUrl,imageUrl,recipeVideoUrl);
 
 @override
 String toString() {
-  return 'Media(imageId: $imageId, thunbNailUrl: $thunbNailUrl, imageUrl: $imageUrl, recipeVideoUrl: $recipeVideoUrl)';
+  return 'Media(imageId: $imageId, thumbNailUrl: $thumbNailUrl, imageUrl: $imageUrl, recipeVideoUrl: $recipeVideoUrl)';
 }
 
 
@@ -47,7 +47,7 @@ abstract mixin class $MediaCopyWith<$Res>  {
   factory $MediaCopyWith(Media value, $Res Function(Media) _then) = _$MediaCopyWithImpl;
 @useResult
 $Res call({
- String imageId, String thunbNailUrl, String imageUrl, String recipeVideoUrl
+ String imageId, String thumbNailUrl, String imageUrl, String recipeVideoUrl
 });
 
 
@@ -64,10 +64,10 @@ class _$MediaCopyWithImpl<$Res>
 
 /// Create a copy of Media
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? imageId = null,Object? thunbNailUrl = null,Object? imageUrl = null,Object? recipeVideoUrl = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? imageId = null,Object? thumbNailUrl = null,Object? imageUrl = null,Object? recipeVideoUrl = null,}) {
   return _then(Media(
 imageId: null == imageId ? _self.imageId : imageId // ignore: cast_nullable_to_non_nullable
-as String,thunbNailUrl: null == thunbNailUrl ? _self.thunbNailUrl : thunbNailUrl // ignore: cast_nullable_to_non_nullable
+as String,thumbNailUrl: null == thumbNailUrl ? _self.thumbNailUrl : thumbNailUrl // ignore: cast_nullable_to_non_nullable
 as String,imageUrl: null == imageUrl ? _self.imageUrl : imageUrl // ignore: cast_nullable_to_non_nullable
 as String,recipeVideoUrl: null == recipeVideoUrl ? _self.recipeVideoUrl : recipeVideoUrl // ignore: cast_nullable_to_non_nullable
 as String,
