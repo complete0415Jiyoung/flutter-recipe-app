@@ -1,22 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'filter.dart';
+part of 'filter_search_state.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Filter _$FilterFromJson(Map<String, dynamic> json) => Filter(
-  time: $enumDecode(_$TimeEnumMap, json['time']),
-  rate: $enumDecode(_$RateEnumMap, json['rate']),
-  category: $enumDecode(_$CategoryEnumMap, json['category']),
-);
+FilterSearchState _$FilterSearchStateFromJson(Map<String, dynamic> json) =>
+    FilterSearchState(
+      time: $enumDecodeNullable(_$TimeEnumMap, json['time']) ?? Time.all,
+      rate: (json['rate'] as num?)?.toInt() ?? 0,
+      category:
+          $enumDecodeNullable(_$CategoryEnumMap, json['category']) ??
+          Category.all,
+    );
 
-Map<String, dynamic> _$FilterToJson(Filter instance) => <String, dynamic>{
-  'time': _$TimeEnumMap[instance.time]!,
-  'rate': _$RateEnumMap[instance.rate]!,
-  'category': _$CategoryEnumMap[instance.category]!,
-};
+Map<String, dynamic> _$FilterSearchStateToJson(FilterSearchState instance) =>
+    <String, dynamic>{
+      'time': _$TimeEnumMap[instance.time]!,
+      'rate': instance.rate,
+      'category': _$CategoryEnumMap[instance.category]!,
+    };
 
 const _$TimeEnumMap = {
   Time.all: 'all',
@@ -25,15 +29,8 @@ const _$TimeEnumMap = {
   Time.popularity: 'popularity',
 };
 
-const _$RateEnumMap = {
-  Rate.one: 'one',
-  Rate.two: 'two',
-  Rate.three: 'three',
-  Rate.four: 'four',
-  Rate.five: 'five',
-};
-
 const _$CategoryEnumMap = {
+  Category.all: 'all',
   Category.cereal: 'cereal',
   Category.vegetables: 'vegetables',
   Category.dinner: 'dinner',
