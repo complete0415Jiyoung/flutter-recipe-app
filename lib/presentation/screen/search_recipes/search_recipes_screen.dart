@@ -86,8 +86,7 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      widget.viewModel.state.filterRecipes.isEmpty &&
-                              widget.viewModel.state.keyword.isEmpty &&
+                      widget.viewModel.state.keyword.isEmpty &&
                               widget
                                       .viewModel
                                       .state
@@ -102,8 +101,8 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                           : 'Search recipe',
                       style: AppTextStyles.normalBold(),
                     ),
-                    widget.viewModel.state.filterRecipes.isEmpty &&
-                            widget.viewModel.state.keyword.isEmpty &&
+
+                    widget.viewModel.state.keyword.isEmpty &&
                             widget.viewModel.state.filterSearchState.category ==
                                 Category.all &&
                             widget.viewModel.state.filterSearchState.rate ==
