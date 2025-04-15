@@ -48,7 +48,7 @@ const _$CategoryEnumMap = {
   Category.cereal: 'cereal',
   Category.vegetables: 'vegetables',
   Category.dinner: 'dinner',
-  Category.chiness: 'chiness',
+  Category.chinese: 'chinese',
   Category.localDish: 'localDish',
   Category.fruit: 'fruit',
   Category.breakfast: 'breakfast',

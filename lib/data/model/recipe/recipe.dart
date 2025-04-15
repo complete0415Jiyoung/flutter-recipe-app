@@ -44,6 +44,4 @@ class Recipe with _$Recipe {
 
   factory Recipe.fromJson(Map<String, dynamic> json) => _$RecipeFromJson(json);
   Map<String, dynamic> toJson() => _$RecipeToJson(this);
-
-  toLowerCase() {}
 }

@@ -39,7 +39,7 @@ enum Category {
   cereal,
   vegetables,
   dinner,
-  chiness,
+  chinese,
   localDish,
   fruit,
   breakfast,
@@ -58,12 +58,12 @@ Category categorySwitch(String? categroy) {
     case 'Dinner':
       return Category.dinner;
     case 'c':
-      return Category.chiness;
+      return Category.chinese;
     case 'localDish':
       return Category.localDish;
     case 'fruit':
       return Category.fruit;
-    case 'breakFast':
+    case 'BreakFast':
       return Category.breakfast;
     case 'spanish':
       return Category.spanish;
