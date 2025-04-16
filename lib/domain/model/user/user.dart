@@ -15,18 +15,15 @@ class User with _$User {
   final String? password;
   final String address;
   final String? imageUrl;
-  final String? introduction;
-  final String? job;
+
   User({
     required this.id,
     required this.userId,
     required this.name,
     required this.email,
     required this.address,
-    this.password,
-    this.imageUrl,
-    this.introduction,
-    this.job,
+    required this.password,
+    required this.imageUrl,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
