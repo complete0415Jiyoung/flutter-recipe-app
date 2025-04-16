@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:recipe_app/data/data_source/user_data_source.dart';
+import 'package:recipe_app/data/data_source/auth_data_source.dart';
 import 'package:recipe_app/data/dto/user_dto.dart';
 
-class UserDataSourceImpl implements UserDataSource {
+class AuthDataSourceImpl implements AuthDataSource {
   final String path = 'assets/data/user.json';
 
-  UserDataSourceImpl();
+  AuthDataSourceImpl();
 
   @override
   Future<UserDto> getUserDto() async {

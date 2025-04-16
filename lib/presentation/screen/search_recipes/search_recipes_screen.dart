@@ -169,7 +169,8 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
 
                     itemBuilder: (context, index) {
                       final recipe = recipes[index];
-                      return RecipeCard(recipe: recipe, isGrid: true);
+                      return null;
+                      // return RecipeCard();
                     },
                   );
                 },

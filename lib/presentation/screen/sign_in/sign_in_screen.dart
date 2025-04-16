@@ -5,9 +5,12 @@ import 'package:recipe_app/core/component/buttons.dart';
 import 'package:recipe_app/core/component/input_field.dart';
 import 'package:recipe_app/core/ui_styles/color_styles.dart';
 import 'package:recipe_app/core/ui_styles/text_styles.dart';
+import 'package:recipe_app/presentation/screen/sign_in/sign_in_view_model.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+  final SignInViewModel viewModel;
+
+  const SignInScreen({super.key, required this.viewModel});
 
   @override
   Widget build(BuildContext context) {

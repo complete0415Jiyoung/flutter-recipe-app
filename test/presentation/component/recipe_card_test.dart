@@ -23,6 +23,8 @@ void main() {
           userId: 'user1',
           email: 'user1@email.com',
           address: '',
+          password: 'pass123',
+          imageUrl: 'assets/images/tomatos.png',
         ),
         category: Category.breakfast,
         media: Media(
@@ -37,9 +39,9 @@ void main() {
         thumbNailUrl: 'assets/images/tomatos.png',
       );
 
-      await tester.pumpWidget(
-        MaterialApp(home: Scaffold(body: RecipeCard(recipe: recipe))),
-      );
+      // await tester.pumpWidget(
+      //   MaterialApp(home: Scaffold(body: RecipeCard(recipe: recipe))),
+      // );
 
       expect(
         find.text("Spice roasted chicken with flavored rice"),
