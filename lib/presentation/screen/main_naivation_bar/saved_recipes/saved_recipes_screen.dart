@@ -69,7 +69,12 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
                 widget.viewModel.setRecipeCardState(recipe);
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: RecipeCard(viewModel: widget.viewModel),
+                  child: RecipeCard(
+                    recipe: recipe,
+                    onBookMarkTap: () {
+                      widget.viewModel.removeToggle(recipe.recipeId);
+                    },
+                  ),
                 );
               },
             );
