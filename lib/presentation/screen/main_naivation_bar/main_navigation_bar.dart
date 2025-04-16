@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/routing/routes.dart';
 
-import 'package:recipe_app/ui/color_styles.dart';
+import 'package:recipe_app/core/ui_styles/color_styles.dart';
 
 class MainNavigationBar extends StatefulWidget {
   final Widget child;

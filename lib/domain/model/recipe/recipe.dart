@@ -1,10 +1,10 @@
 // [Recipe] 레시피 게시글의 기본 정보를 담고 있습니다.
 // ignore_for_file: annotate_overrides
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:recipe_app/data/model/filter/filter_enum.dart';
-import 'package:recipe_app/data/model/ingredient/ingredient.dart';
-import 'package:recipe_app/data/model/media/media.dart';
-import 'package:recipe_app/data/model/user/user.dart';
+import 'package:recipe_app/domain/model/filter/filter_enum.dart';
+import 'package:recipe_app/domain/model/ingredient/ingredient.dart';
+import 'package:recipe_app/domain/model/media/media.dart';
+import 'package:recipe_app/domain/model/user/user.dart';
 
 part 'recipe.freezed.dart';
 part 'recipe.g.dart';

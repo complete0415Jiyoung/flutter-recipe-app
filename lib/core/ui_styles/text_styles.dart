@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recipe_app/ui/color_styles.dart';
+import 'package:recipe_app/core/ui_styles/color_styles.dart';
 
 abstract class AppTextStyles {
   // ─── Bold ─────────────────────────────

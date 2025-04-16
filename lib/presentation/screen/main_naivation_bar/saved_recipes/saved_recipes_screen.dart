@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/presentation/component/recipe_card.dart';
-import 'package:recipe_app/presentation/component/skeleton_effect.dart';
+import 'package:recipe_app/core/component/recipe_card.dart';
+import 'package:recipe_app/core/component/skeleton_effect.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_view_model.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/skeleton_card.dart';
-import 'package:recipe_app/ui/color_styles.dart';
-import 'package:recipe_app/ui/text_styles.dart';
+import 'package:recipe_app/core/ui_styles/color_styles.dart';
+import 'package:recipe_app/core/ui_styles/text_styles.dart';
 
 class SavedRecipesScreen extends StatelessWidget {
   final SavedRecipesViewModel viewModel;

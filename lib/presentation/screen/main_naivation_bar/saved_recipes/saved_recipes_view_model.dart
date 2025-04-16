@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/data/repository/recipe_repository.dart';
+import 'package:recipe_app/domain/roepositpry/recipe_repository.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipe_state.dart';
 
 class SavedRecipesViewModel with ChangeNotifier {

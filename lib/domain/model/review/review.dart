@@ -1,4 +1,4 @@
-import 'package:recipe_app/data/model/user/user.dart';
+import 'package:recipe_app/domain/model/user/user.dart';
 
 // [Review] 레시피게시글 댓글정보를 담고 있습니다.
 // ignore_for_file: annotate_overrides

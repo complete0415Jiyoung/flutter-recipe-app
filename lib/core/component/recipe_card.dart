@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/data/model/recipe/recipe.dart';
-import 'package:recipe_app/presentation/component/image_roader.dart';
-import 'package:recipe_app/ui/color_styles.dart';
-import 'package:recipe_app/ui/text_styles.dart';
+import 'package:recipe_app/domain/model/recipe/recipe.dart';
+import 'package:recipe_app/core/component/image_roader.dart';
+import 'package:recipe_app/core/ui_styles/color_styles.dart';
+import 'package:recipe_app/core/ui_styles/text_styles.dart';
 
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
