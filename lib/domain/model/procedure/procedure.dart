@@ -8,7 +8,7 @@ part 'procedure.g.dart';
 @freezed
 @JsonSerializable(explicitToJson: true)
 class Procedure with _$Procedure {
-  final String recipeId;
+  final int recipeId;
   final int step;
   final String content;
   Procedure({
