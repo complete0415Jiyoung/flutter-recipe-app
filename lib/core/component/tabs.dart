@@ -20,39 +20,38 @@ class Tabs extends StatelessWidget {
       decoration: const BoxDecoration(color: ColorStyle.white),
       height: 58,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children:
-            labels.map((label) {
-              final int labelIndex = labels.indexOf(label);
-              return GestureDetector(
-                onTap: () {
-                  onValueChange(labelIndex);
-                },
+            labels.asMap().entries.map((entry) {
+              final index = entry.key;
+              final label = entry.value;
 
-                // child: Container(
-                child: AnimatedContainer(
-                  duration: const Duration(microseconds: 700),
-                  curve: Curves.easeInOut,
-                  // Curves.decelerate (초반에 빠르고 점점 느려짐)
-                  // Curves.elasticOut (쫀득한 튕김 효과)
-                  width: 375 / labels.length,
-                  height: 33,
-                  decoration: BoxDecoration(
-                    color:
-                        labelIndex == selectIndex
-                            ? ColorStyle.primary100
-                            : Colors.transparent,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                    child: Text(
-                      label,
-                      style:
-                          labelIndex == selectIndex
-                              ? AppTextStyles.smallBold(color: ColorStyle.white)
-                              : AppTextStyles.smallBold(
-                                color: ColorStyle.primary80,
-                              ),
+              return Expanded(
+                child: GestureDetector(
+                  onTap: () => onValueChange(index),
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                    height: 33,
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    decoration: BoxDecoration(
+                      color:
+                          index == selectIndex
+                              ? ColorStyle.primary100
+                              : Colors.transparent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        label,
+                        style:
+                            index == selectIndex
+                                ? AppTextStyles.smallBold(
+                                  color: ColorStyle.white,
+                                )
+                                : AppTextStyles.smallBold(
+                                  color: ColorStyle.primary80,
+                                ),
+                      ),
                     ),
                   ),
                 ),

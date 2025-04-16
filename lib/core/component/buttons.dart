@@ -40,7 +40,8 @@ class Buttons extends StatefulWidget {
       height: 37,
       radius: 10,
       textStyle: AppTextStyles.smallBold(color: Colors.white),
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+      padding: const EdgeInsets.all(10),
+      // padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
     ),
   };
 
@@ -109,6 +110,8 @@ class _ButtonsState extends State<Buttons> {
           borderRadius: BorderRadius.circular(style.radius),
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(

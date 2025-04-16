@@ -10,48 +10,54 @@ class IngredientItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 76,
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-        color: ColorStyle.gray4,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: 52,
-            height: 52,
-            decoration: BoxDecoration(
-              color: ColorStyle.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: SizedBox(
-                width: 40,
-                height: 40,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child:
-                      ingredient.imageUrl.startsWith('http')
-                          ? Image.network(
-                            ingredient.imageUrl,
-                            fit: BoxFit.cover,
-                          )
-                          : Image.asset(ingredient.imageUrl, fit: BoxFit.cover),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Container(
+        height: 76,
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          color: ColorStyle.gray4,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 52,
+              height: 52,
+              decoration: BoxDecoration(
+                color: ColorStyle.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(
+                child: SizedBox(
+                  width: 40,
+                  height: 40,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child:
+                        ingredient.imageUrl.startsWith('http')
+                            ? Image.network(
+                              ingredient.imageUrl,
+                              fit: BoxFit.cover,
+                            )
+                            : Image.asset(
+                              ingredient.imageUrl,
+                              fit: BoxFit.cover,
+                            ),
+                  ),
                 ),
               ),
             ),
-          ),
-          const SizedBox(width: 12),
-          Text(ingredient.name, style: AppTextStyles.normalBold()),
-          const Spacer(),
-          Text(
-            '${ingredient.weight}g',
-            style: AppTextStyles.smallRegular(color: ColorStyle.gray3),
-          ),
-        ],
+            const SizedBox(width: 12),
+            Text(ingredient.name, style: AppTextStyles.normalBold()),
+            const Spacer(),
+            Text(
+              '${ingredient.weight}g',
+              style: AppTextStyles.smallRegular(color: ColorStyle.gray3),
+            ),
+          ],
+        ),
       ),
     );
   }
