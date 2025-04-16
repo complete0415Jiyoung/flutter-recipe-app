@@ -22,23 +22,7 @@ class RecipeListExampleScreen extends StatelessWidget {
         ],
         time: 20,
         rating: 4.0,
-        user: User(
-          name: "Mark Kelvin",
-          id: 1,
-          email: 'test@email.com',
-          userId: 'user1',
-          address: "Lagos, Nigeria",
-          password: 'pass123',
-          imageUrl:
-              "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
-        ),
-        media: Media(
-          imageId: 'imageId',
-          thumbNailUrl:
-              "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
-          imageUrl: 'imageUrl',
-          recipeVideoUrl: 'recipeVideoUrl',
-        ),
+
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
         thumbNailUrl:
@@ -53,23 +37,7 @@ class RecipeListExampleScreen extends StatelessWidget {
         ],
         time: 20,
         rating: 4.0,
-        user: User(
-          imageUrl:
-              "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
-          name: "Mark Kelvin",
-          id: 1,
-          email: 'test@email.com',
-          userId: 'user1',
-          address: "Lagos, Nigeria",
-          password: 'pass123',
-        ),
-        media: Media(
-          imageId: 'imageId',
-          thumbNailUrl:
-              "https://cdn.pixabay.com/photo/2019/09/07/19/02/spanish-paella-4459519_1280.jpg",
-          imageUrl: 'imageUrl',
-          recipeVideoUrl: 'recipeVideoUrl',
-        ),
+
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
         thumbNailUrl:
@@ -84,23 +52,7 @@ class RecipeListExampleScreen extends StatelessWidget {
         ],
         time: 20,
         rating: 4.0,
-        user: User(
-          name: "Mark Kelvin",
-          id: 1,
-          email: 'test@email.com',
-          userId: 'user1',
-          address: "Lagos, Nigeria",
-          password: 'pass123',
-          imageUrl:
-              "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
-        ),
-        media: Media(
-          imageId: 'imageId',
-          thumbNailUrl:
-              "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_1280.jpg",
-          imageUrl: 'imageUrl',
-          recipeVideoUrl: 'recipeVideoUrl',
-        ),
+
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
         thumbNailUrl:
@@ -115,22 +67,7 @@ class RecipeListExampleScreen extends StatelessWidget {
         ],
         time: 20,
         rating: 4.0,
-        user: User(
-          name: "Mark Kelvin",
-          id: 1,
-          email: 'test@email.com',
-          userId: 'user1',
-          address: "Lagos, Nigeria",
-          password: 'password',
-          imageUrl: "assets/images/profile_img.jpeg",
-        ),
-        media: Media(
-          imageId: 'imageId',
-          thumbNailUrl:
-              "https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_1280.jpg",
-          imageUrl: 'imageUrl',
-          recipeVideoUrl: 'recipeVideoUrl',
-        ),
+
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
         thumbNailUrl:
@@ -145,22 +82,7 @@ class RecipeListExampleScreen extends StatelessWidget {
         ],
         time: 20,
         rating: 4.0,
-        user: User(
-          name: "Mark Kelvin",
-          id: 1,
-          email: 'test@email.com',
-          userId: 'user1',
-          address: "Lagos, Nigeria",
-          password: 'password',
-          imageUrl: "assets/images/profile_img.jpeg",
-        ),
-        media: Media(
-          imageId: 'imageId',
-          thumbNailUrl:
-              "https://cdn.pixabay.com/photo/2016/11/22/18/52/cake-1850011_1280.jpg",
-          imageUrl: 'imageUrl',
-          recipeVideoUrl: 'recipeVideoUrl',
-        ),
+
         createdAt: DateTime.now(),
         userName: 'Mark Kelvin',
         thumbNailUrl:
