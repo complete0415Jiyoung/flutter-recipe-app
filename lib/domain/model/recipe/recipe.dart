@@ -1,10 +1,9 @@
 // [Recipe] 레시피 게시글의 기본 정보를 담고 있습니다.
 // ignore_for_file: annotate_overrides
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:recipe_app/domain/model/filter/filter_enum.dart';
 import 'package:recipe_app/domain/model/ingredient/ingredient.dart';
-import 'package:recipe_app/domain/model/media/media.dart';
-import 'package:recipe_app/domain/model/user/user.dart';
 
 part 'recipe.freezed.dart';
 part 'recipe.g.dart';
@@ -19,27 +18,23 @@ class Recipe with _$Recipe {
   final double rating;
   final String userName;
   final String thumbNailUrl;
-  final User? user;
-  final Media? media;
   final DateTime createdAt;
   final Category category;
+  final bool isBookmarked;
   // final List<Category> categoryList;
   // final List<Review> reviews;
-  // final List<Procedure> procedures;
 
   const Recipe({
-    required this.userName,
     required this.recipeId,
-    required this.createdAt,
     required this.title,
     required this.ingredient,
     required this.time,
     required this.rating,
+    required this.userName,
     required this.thumbNailUrl,
+    required this.createdAt,
     required this.category,
-    this.user,
-    this.media,
-    // recipeId this.procedures,
+    this.isBookmarked = false,
   });
 
   factory Recipe.fromJson(Map<String, dynamic> json) => _$RecipeFromJson(json);
