@@ -1,11 +1,11 @@
-import 'package:recipe_app/data/data_source/user_data_source.dart';
+import 'package:recipe_app/data/data_source/auth_data_source.dart';
 import 'package:recipe_app/data/mepper/user_mepper.dart';
 import 'package:recipe_app/domain/model/user/user.dart';
 import 'package:recipe_app/domain/roepositpry/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
-  final UserDataSource _dataSource;
-  AuthRepositoryImpl({required UserDataSource dataSource})
+  final AuthDataSource _dataSource;
+  AuthRepositoryImpl({required AuthDataSource dataSource})
     : _dataSource = dataSource;
 
   @override
