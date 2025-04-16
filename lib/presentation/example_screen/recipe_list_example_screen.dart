@@ -28,6 +28,9 @@ class RecipeListExampleScreen extends StatelessWidget {
           email: 'test@email.com',
           userId: 'user1',
           address: "Lagos, Nigeria",
+          password: 'pass123',
+          imageUrl:
+              "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
         ),
         media: Media(
           imageId: 'imageId',
@@ -51,11 +54,14 @@ class RecipeListExampleScreen extends StatelessWidget {
         time: 20,
         rating: 4.0,
         user: User(
+          imageUrl:
+              "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
           name: "Mark Kelvin",
           id: 1,
           email: 'test@email.com',
           userId: 'user1',
           address: "Lagos, Nigeria",
+          password: 'pass123',
         ),
         media: Media(
           imageId: 'imageId',
@@ -84,6 +90,9 @@ class RecipeListExampleScreen extends StatelessWidget {
           email: 'test@email.com',
           userId: 'user1',
           address: "Lagos, Nigeria",
+          password: 'pass123',
+          imageUrl:
+              "https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg",
         ),
         media: Media(
           imageId: 'imageId',
@@ -112,6 +121,8 @@ class RecipeListExampleScreen extends StatelessWidget {
           email: 'test@email.com',
           userId: 'user1',
           address: "Lagos, Nigeria",
+          password: 'password',
+          imageUrl: "assets/images/profile_img.jpeg",
         ),
         media: Media(
           imageId: 'imageId',
@@ -140,6 +151,8 @@ class RecipeListExampleScreen extends StatelessWidget {
           email: 'test@email.com',
           userId: 'user1',
           address: "Lagos, Nigeria",
+          password: 'password',
+          imageUrl: "assets/images/profile_img.jpeg",
         ),
         media: Media(
           imageId: 'imageId',
@@ -165,7 +178,7 @@ class RecipeListExampleScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 12),
-            child: RecipeCard(recipe: recipes[index]),
+            // child: RecipeCard(recipe: recipes[index]),
           );
         },
       ),
