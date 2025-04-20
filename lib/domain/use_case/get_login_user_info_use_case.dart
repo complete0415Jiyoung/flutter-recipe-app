@@ -1,5 +1,5 @@
 import 'package:recipe_app/domain/model/user/user.dart';
-import 'package:recipe_app/domain/roepository/auth_repository.dart';
+import 'package:recipe_app/domain/repository/auth_repository.dart';
 
 class GetLoginUserInfoUseCase {
   final AuthRepository _repository;
