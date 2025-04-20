@@ -10,7 +10,7 @@ class SearchField extends StatelessWidget {
   final String value;
   final void Function(String changed) onValueChange;
   final VoidCallback onFilterPressed;
-  final bool isGoSearchSceen;
+  final bool isGoSearchScreen;
 
   const SearchField({
     super.key,
@@ -18,7 +18,7 @@ class SearchField extends StatelessWidget {
     required this.value,
     required this.onValueChange,
     required this.onFilterPressed,
-    this.isGoSearchSceen = false,
+    this.isGoSearchScreen = false,
   });
 
   @override
@@ -70,7 +70,7 @@ class SearchField extends StatelessWidget {
         const SizedBox(width: 10), // 검색창과 필터 버튼 사이 간격 추가
         GestureDetector(
           onTap:
-              isGoSearchSceen
+              isGoSearchScreen
                   ? () => context.push(Routes.search)
                   : onFilterPressed,
           child: Container(

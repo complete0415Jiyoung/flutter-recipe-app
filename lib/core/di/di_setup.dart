@@ -14,16 +14,16 @@ import 'package:recipe_app/data/repository/book_mark_repository_impl.dart';
 import 'package:recipe_app/data/repository/procedure_repository_impl.dart';
 import 'package:recipe_app/data/repository/recipe_repository_impl.dart';
 import 'package:recipe_app/data/repository/user_repository_impl.dart';
-import 'package:recipe_app/domain/roepositpry/auth_repository.dart';
-import 'package:recipe_app/domain/roepositpry/book_mark_repository.dart';
-import 'package:recipe_app/domain/roepositpry/procedure_repository.dart';
-import 'package:recipe_app/domain/roepositpry/recipe_repository.dart';
-import 'package:recipe_app/domain/roepositpry/user_repository.dart';
+import 'package:recipe_app/domain/roepository/auth_repository.dart';
+import 'package:recipe_app/domain/roepository/book_mark_repository.dart';
+import 'package:recipe_app/domain/roepository/procedure_repository.dart';
+import 'package:recipe_app/domain/roepository/recipe_repository.dart';
+import 'package:recipe_app/domain/roepository/user_repository.dart';
 import 'package:recipe_app/domain/use_case/fetch_recipe_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_book_marked_recipes_id_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_login_user_info_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_recipe_procedure_use_case.dart';
-import 'package:recipe_app/domain/use_case/get_recipes_by_ids_user_case.dart';
+import 'package:recipe_app/domain/use_case/get_recipes_by_ids_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_user_info_use_case.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_view_model.dart';
 import 'package:recipe_app/presentation/screen/recipe_detail/recipe_detail_view_model.dart';
@@ -53,7 +53,7 @@ void diSetup() {
     AuthRepositoryImpl(dataSource: getIt<AuthDataSource>()),
   );
 
-  getIt.registerSingleton<BookMarkDataSourceImpl>(BookMarkDataSourceImpl());
+  getIt.registerSingleton<BookMarkDataSource>(BookMarkDataSourceImpl());
   getIt.registerSingleton<BookMarkRepository>(
     BookMarkRepositoryImpl(dataSource: getIt<BookMarkDataSourceImpl>()),
   );
@@ -74,8 +74,8 @@ void diSetup() {
   getIt.registerSingleton<GetBookMarkedRecipesIdUseCase>(
     GetBookMarkedRecipesIdUseCase(repository: getIt<BookMarkRepository>()),
   );
-  getIt.registerSingleton<GetRecipesByIdsUserCase>(
-    GetRecipesByIdsUserCase(repository: getIt<RecipeRepository>()),
+  getIt.registerSingleton<GetRecipesByIdsUseCase>(
+    GetRecipesByIdsUseCase(repository: getIt<RecipeRepository>()),
   );
 
   // 저장된 레시피 화면
@@ -83,7 +83,7 @@ void diSetup() {
     () => SavedRecipesViewModel(
       getLoginUserInfo: getIt<GetLoginUserInfoUseCase>(),
       getBookMarkedRecipesIdUseCase: getIt<GetBookMarkedRecipesIdUseCase>(),
-      getRecipesByIdsUserCase: getIt<GetRecipesByIdsUserCase>(),
+      getRecipesByIdsUseCase: getIt<GetRecipesByIdsUseCase>(),
     ),
   );
   // 레시피 검색화면

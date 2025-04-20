@@ -1,5 +1,5 @@
 import 'package:recipe_app/domain/model/user/user.dart';
-import 'package:recipe_app/domain/roepositpry/user_repository.dart';
+import 'package:recipe_app/domain/roepository/user_repository.dart';
 
 class GetUserInfoUseCase {
   final UserRepository _repository;

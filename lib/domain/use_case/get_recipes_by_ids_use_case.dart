@@ -1,10 +1,10 @@
 import 'package:recipe_app/domain/model/recipe/recipe.dart';
-import 'package:recipe_app/domain/roepositpry/recipe_repository.dart';
+import 'package:recipe_app/domain/roepository/recipe_repository.dart';
 
-class GetRecipesByIdsUserCase {
+class GetRecipesByIdsUseCase {
   final RecipeRepository _repository;
 
-  GetRecipesByIdsUserCase({required RecipeRepository repository})
+  GetRecipesByIdsUseCase({required RecipeRepository repository})
     : _repository = repository;
 
   Future<List<Recipe>> execute(List<int> recipeIds) async {
