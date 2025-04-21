@@ -18,7 +18,10 @@ final GoRouter router = GoRouter(
   initialLocation: Routes.splash,
   routes: [
     // 인증관련 화면
-    GoRoute(path: Routes.splash, builder: (conttext, state) => SplashScreen()),
+    GoRoute(
+      path: Routes.splash,
+      builder: (conttext, state) => SplashScreen(viewModel: getIt()),
+    ),
     GoRoute(path: Routes.signIn, builder: (conttext, state) => SignInScreen()),
     GoRoute(path: Routes.signUp, builder: (conttext, state) => SignUpScreen()),
 

@@ -28,6 +28,7 @@ import 'package:recipe_app/domain/use_case/get_user_info_use_case.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_view_model.dart';
 import 'package:recipe_app/presentation/screen/recipe_detail/recipe_detail_view_model.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/search_recipes_view_model.dart';
+import 'package:recipe_app/presentation/screen/splash/splash_view_model.dart';
 
 final getIt = GetIt.instance;
 
@@ -55,7 +56,7 @@ void diSetup() {
 
   getIt.registerSingleton<BookMarkDataSource>(BookMarkDataSourceImpl());
   getIt.registerSingleton<BookMarkRepository>(
-    BookMarkRepositoryImpl(dataSource: getIt<BookMarkDataSourceImpl>()),
+    BookMarkRepositoryImpl(dataSource: getIt<BookMarkDataSource>()),
   );
 
   // 유스케이스 등록
@@ -98,4 +99,6 @@ void diSetup() {
       getUserInfoUseCase: getIt<GetUserInfoUseCase>(),
     ),
   );
+  // 스플래쉬화면
+  getIt.registerFactory(() => SplashViewModel());
 }
