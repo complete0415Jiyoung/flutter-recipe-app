@@ -69,9 +69,26 @@ final GoRouter router = GoRouter(
       ],
     ),
 
-    GoRoute(
-      path: Routes.search,
-      builder: (conttext, state) => SearchRecipesScreen(viewModel: getIt()),
+    // 상태 유지
+    StatefulShellRoute.indexedStack(
+      builder: (
+        context,
+        GoRouterState state,
+        StatefulNavigationShell navigationShell,
+      ) {
+        return navigationShell;
+      },
+      branches: [
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: Routes.search,
+              builder:
+                  (context, state) => SearchRecipesScreen(viewModel: getIt()),
+            ),
+          ],
+        ),
+      ],
     ),
 
     // 레시피 상세화면
