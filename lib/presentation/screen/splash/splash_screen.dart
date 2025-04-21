@@ -23,6 +23,7 @@ class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   // 스트림 구독
   StreamSubscription? _subscription;
+  bool _isButtonEnabled = false;
 
   // 애니메이트 컨트롤러
   late AnimationController _controller;
@@ -37,16 +38,16 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    widget.viewModel.onLoad();
+    widget.viewModel.fetchNetworkError();
     // 비행기 모드시 네트워크 에러 표시
     _subscription = widget.viewModel.eventStream.listen((event) {
       if (mounted) {
         switch (event) {
           case networkError():
-            final snackBar = SnackBar(
-              content: Text(event.message),
-              duration: const Duration(seconds: 3),
-            );
+            setState(() {
+              _isButtonEnabled = true;
+            });
+            final snackBar = SnackBar(content: Text(event.message));
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           case goHome():
             // 홈으로 이동
@@ -198,6 +199,7 @@ class _SplashScreenState extends State<SplashScreen>
                           text: 'Start Cooking',
                           icon: Icons.arrow_forward,
                           size: ButtonSize.medium,
+                          isDisabled: _isButtonEnabled,
                           onPressed: () {
                             // context.replace(Routes.signIn);
                             widget.viewModel.goHome();

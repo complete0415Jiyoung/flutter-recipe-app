@@ -62,6 +62,6 @@ class FilterSerchRecipeUseCase {
       filtered = filtered.where((r) => r.category == category).toList();
     }
 
-    return filtered;
+    return _repository.saveSearchRecipes(filtered);
   }
 }

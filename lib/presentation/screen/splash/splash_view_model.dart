@@ -1,10 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:recipe_app/domain/repository/network_error_repository.dart';
 import 'package:recipe_app/presentation/screen/splash/splash_event.dart';
 
 class SplashViewModel with ChangeNotifier {
-  SplashViewModel();
+  final NetworkErrorRepository _errorRepository;
+
+  SplashViewModel({required NetworkErrorRepository errorRepository})
+    : _errorRepository = errorRepository;
 
   final _eventController = StreamController<SplashEvent>();
   Stream<SplashEvent> get eventStream => _eventController.stream;
@@ -19,9 +23,10 @@ class SplashViewModel with ChangeNotifier {
     _eventController.add(SplashEvent.goHome('홈으로 이동합니다.'));
   }
 
-  void onLoad() {
-    Future.delayed(const Duration(seconds: 1), () {
-      onNetworkError();
-    });
+  void fetchNetworkError() async {
+    final networkStatus = await _errorRepository.onNetworkError();
+    if (networkStatus) {
+      _eventController.add(const SplashEvent.networkError('알 수 없는 네트워크 오류'));
+    }
   }
 }
