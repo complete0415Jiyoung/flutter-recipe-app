@@ -5,18 +5,21 @@ import 'package:recipe_app/core/component/recipe_card.dart';
 import 'package:recipe_app/core/component/search_field.dart';
 import 'package:recipe_app/core/component/skeleton_effect.dart';
 import 'package:recipe_app/core/ui_styles/text_styles.dart';
+import 'package:recipe_app/presentation/screen/search_recipes/action/search_recipe_action.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/state/search_recipe_state.dart';
 
 class SearchRecipesScreen extends StatefulWidget {
   final SearchRecipeState state;
-  final void Function(String keyword) searchRecipe;
-  final VoidCallback showFilter;
+  // final void Function(String keyword) searchRecipe;
+  // final VoidCallback showFilter;
+  final void Function(SearchRecipeAction action) onAction;
 
   const SearchRecipesScreen({
     super.key,
     required this.state,
-    required this.searchRecipe,
-    required this.showFilter,
+    // required this.searchRecipe,
+    // required this.showFilter,
+    required this.onAction,
   });
 
   @override
@@ -52,11 +55,13 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
               placeHolder: 'Search recipe',
               value: widget.state.keyword,
               onValueChange: (value) {
-                widget.searchRecipe(value); // 키워드 업데이트
+                print(value);
+                widget.onAction(
+                  SearchRecipeAction.searchRecipe(value),
+                ); // 키워드 업데이트
               },
               onFilterPressed: () {
-                // _showFilterBottomSheet(context);
-                widget.showFilter();
+                widget.onAction(SearchRecipeAction.showFilter());
               },
             ),
             const SizedBox(height: 20),

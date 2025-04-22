@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:recipe_app/presentation/screen/search_recipes/event/search_recipes_event.dart';
+import 'package:recipe_app/presentation/screen/search_recipes/action/search_recipe_action.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/filter_search_bottom_sheet.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/search_recipes_screen.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/search_recipes_view_model.dart';
@@ -21,26 +19,15 @@ class SearchRecipesScreenRoot extends StatefulWidget {
 class _SearchRecipesScreenRootState extends State<SearchRecipesScreenRoot> {
   SearchRecipesViewModel get viewModel => widget.viewModel;
   SearchRecipeState get state => widget.viewModel.state;
-  // 스트림 구독
-  StreamSubscription? _subscription;
 
   @override
   void initState() {
     super.initState();
     widget.viewModel.fetchRecipe();
-    _subscription = widget.viewModel.eventStream.listen((event) {
-      if (mounted) {
-        switch (event) {
-          case ShowFilter():
-            _showFilterBottomSheet(context); // 필터 바텀 시트 열기
-        }
-      }
-    });
   }
 
   @override
   void dispose() {
-    _subscription?.cancel();
     super.dispose();
   }
 
@@ -90,8 +77,16 @@ class _SearchRecipesScreenRootState extends State<SearchRecipesScreenRoot> {
       builder: (_, __) {
         return SearchRecipesScreen(
           state: state,
-          searchRecipe: viewModel.searchRecipe,
-          showFilter: viewModel.showFilter,
+          // searchRecipe: viewModel.searchRecipe,
+          // showFilter: viewModel.showFilter,
+          onAction: (SearchRecipeAction action) {
+            switch (action) {
+              case SearchRecipe():
+                viewModel.searchRecipe(action.keyword);
+              case ShowFilter():
+                _showFilterBottomSheet(context);
+            }
+          },
         );
       },
     );

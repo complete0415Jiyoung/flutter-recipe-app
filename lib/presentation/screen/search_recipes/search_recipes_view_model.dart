@@ -5,7 +5,7 @@ import 'package:recipe_app/domain/model/filter/filter_enum.dart';
 import 'package:recipe_app/domain/use_case/filter_serch_recipe_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_search_recipe_use_case.dart';
 import 'package:recipe_app/domain/use_case/save_serch_recipe_use_case.dart';
-import 'package:recipe_app/presentation/screen/search_recipes/event/search_recipes_event.dart';
+
 import 'package:recipe_app/presentation/screen/search_recipes/state/search_recipe_state.dart';
 
 class SearchRecipesViewModel with ChangeNotifier {
@@ -23,14 +23,6 @@ class SearchRecipesViewModel with ChangeNotifier {
 
   SearchRecipeState _state = SearchRecipeState();
   SearchRecipeState get state => _state;
-
-  final _eventController = StreamController<SearchRecipesEvent>();
-  Stream<SearchRecipesEvent> get eventStream => _eventController.stream;
-
-  // 스트림 필터 버텀시트 띄우기
-  void showFilter() {
-    _eventController.add(SearchRecipesEvent.showFilter()); // 필터 이벤트 발생
-  }
 
   // 레시피 가져오기
   Future<void> fetchRecipe() async {
