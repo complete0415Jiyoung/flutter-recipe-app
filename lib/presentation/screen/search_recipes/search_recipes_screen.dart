@@ -55,7 +55,6 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
               placeHolder: 'Search recipe',
               value: widget.state.keyword,
               onValueChange: (value) {
-                print(value);
                 widget.onAction(
                   SearchRecipeAction.searchRecipe(value),
                 ); // 키워드 업데이트

@@ -3,6 +3,7 @@ import 'package:recipe_app/core/di/di_setup.dart';
 import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/presentation/example_screen/preview_main.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/home/home_screen.dart';
+import 'package:recipe_app/presentation/screen/main_naivation_bar/home/home_screen_root.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/main_navigation_bar.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/profile/profile_screen.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_screen_root.dart';
@@ -36,7 +37,7 @@ final GoRouter router = GoRouter(
             GoRoute(
               path: Routes.home,
               builder: (context, state) {
-                return HomeScreen();
+                return HomeScreenRoot(viewModel: getIt());
               },
             ),
           ],

@@ -31,6 +31,7 @@ import 'package:recipe_app/domain/use_case/get_recipes_by_ids_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_search_recipe_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_user_info_use_case.dart';
 import 'package:recipe_app/domain/use_case/save_serch_recipe_use_case.dart';
+import 'package:recipe_app/presentation/screen/main_naivation_bar/home/home_view_model.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_view_model.dart';
 import 'package:recipe_app/presentation/screen/recipe_detail/recipe_detail_view_model.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/search_recipes_view_model.dart';
@@ -96,6 +97,11 @@ void diSetup() {
   );
   getIt.registerSingleton<FilterSerchRecipeUseCase>(
     FilterSerchRecipeUseCase(repository: getIt<RecipeRepository>()),
+  );
+
+  // 홈 화면
+  getIt.registerFactory(
+    () => HomeViewModel(getLoginUserInfo: getIt<GetLoginUserInfoUseCase>()),
   );
 
   // 저장된 레시피 화면
