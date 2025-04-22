@@ -29,4 +29,10 @@ class SplashViewModel with ChangeNotifier {
       _eventController.add(const SplashEvent.networkError('알 수 없는 네트워크 오류'));
     }
   }
+
+  @override
+  void dispose() {
+    _eventController.close();
+    super.dispose();
+  }
 }

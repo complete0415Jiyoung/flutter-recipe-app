@@ -28,7 +28,7 @@ import 'package:recipe_app/domain/use_case/get_book_marked_recipes_id_use_case.d
 import 'package:recipe_app/domain/use_case/get_login_user_info_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_recipe_procedure_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_recipes_by_ids_use_case.dart';
-import 'package:recipe_app/domain/use_case/get_serch_recipe_use_case.dart';
+import 'package:recipe_app/domain/use_case/get_search_recipe_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_user_info_use_case.dart';
 import 'package:recipe_app/domain/use_case/save_serch_recipe_use_case.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_view_model.dart';
@@ -88,8 +88,8 @@ void diSetup() {
   getIt.registerSingleton<GetRecipesByIdsUseCase>(
     GetRecipesByIdsUseCase(repository: getIt<RecipeRepository>()),
   );
-  getIt.registerSingleton<GetSerchRecipeUseCase>(
-    GetSerchRecipeUseCase(repository: getIt<RecipeRepository>()),
+  getIt.registerSingleton<GetSearchRecipeUseCase>(
+    GetSearchRecipeUseCase(repository: getIt<RecipeRepository>()),
   );
   getIt.registerSingleton<SaveSerchRecipeUseCase>(
     SaveSerchRecipeUseCase(repository: getIt<RecipeRepository>()),
@@ -109,7 +109,7 @@ void diSetup() {
   // 레시피 검색화면
   getIt.registerFactory(
     () => SearchRecipesViewModel(
-      getSerchRecipeUseCase: getIt<GetSerchRecipeUseCase>(),
+      GetSearchRecipeUseCase: getIt<GetSearchRecipeUseCase>(),
       saveSerchRecipeUseCase: getIt<SaveSerchRecipeUseCase>(),
       filterSerchRecipeUseCase: getIt<FilterSerchRecipeUseCase>(),
     ),
@@ -179,8 +179,8 @@ void mockNetworkError() {
   getIt.registerSingleton<GetRecipesByIdsUseCase>(
     GetRecipesByIdsUseCase(repository: getIt<RecipeRepository>()),
   );
-  getIt.registerSingleton<GetSerchRecipeUseCase>(
-    GetSerchRecipeUseCase(repository: getIt<RecipeRepository>()),
+  getIt.registerSingleton<GetSearchRecipeUseCase>(
+    GetSearchRecipeUseCase(repository: getIt<RecipeRepository>()),
   );
   getIt.registerSingleton<SaveSerchRecipeUseCase>(
     SaveSerchRecipeUseCase(repository: getIt<RecipeRepository>()),
@@ -200,7 +200,7 @@ void mockNetworkError() {
   // 레시피 검색화면
   getIt.registerFactory(
     () => SearchRecipesViewModel(
-      getSerchRecipeUseCase: getIt<GetSerchRecipeUseCase>(),
+      GetSearchRecipeUseCase: getIt<GetSearchRecipeUseCase>(),
       saveSerchRecipeUseCase: getIt<SaveSerchRecipeUseCase>(),
       filterSerchRecipeUseCase: getIt<FilterSerchRecipeUseCase>(),
     ),

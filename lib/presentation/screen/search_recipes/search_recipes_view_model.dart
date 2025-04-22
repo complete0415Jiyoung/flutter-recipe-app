@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/domain/model/filter/filter_enum.dart';
-import 'package:recipe_app/domain/model/recipe/recipe.dart';
-import 'package:recipe_app/domain/repository/recipe_repository.dart';
 import 'package:recipe_app/domain/use_case/filter_serch_recipe_use_case.dart';
-import 'package:recipe_app/domain/use_case/get_serch_recipe_use_case.dart';
+import 'package:recipe_app/domain/use_case/get_search_recipe_use_case.dart';
 import 'package:recipe_app/domain/use_case/save_serch_recipe_use_case.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/state/search_recipe_state.dart';
 
 class SearchRecipesViewModel with ChangeNotifier {
-  final GetSerchRecipeUseCase _getSerchRecipeUseCase;
+  final GetSearchRecipeUseCase _GetSearchRecipeUseCase;
   final SaveSerchRecipeUseCase _saveSerchRecipeUseCase;
   final FilterSerchRecipeUseCase _filterSerchRecipeUseCase;
 
   SearchRecipesViewModel({
-    required GetSerchRecipeUseCase getSerchRecipeUseCase,
+    required GetSearchRecipeUseCase GetSearchRecipeUseCase,
     required SaveSerchRecipeUseCase saveSerchRecipeUseCase,
     required FilterSerchRecipeUseCase filterSerchRecipeUseCase,
   }) : _saveSerchRecipeUseCase = saveSerchRecipeUseCase,
-       _getSerchRecipeUseCase = getSerchRecipeUseCase,
+       _GetSearchRecipeUseCase = GetSearchRecipeUseCase,
        _filterSerchRecipeUseCase = filterSerchRecipeUseCase;
 
   SearchRecipeState _state = SearchRecipeState();
@@ -28,7 +26,7 @@ class SearchRecipesViewModel with ChangeNotifier {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
 
-    final searchRecipes = await _getSerchRecipeUseCase.execute();
+    final searchRecipes = await _GetSearchRecipeUseCase.execute();
 
     _state = state.copyWith(
       isLoading: false,

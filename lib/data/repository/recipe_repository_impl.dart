@@ -46,11 +46,13 @@ class RecipeRepositoryImpl implements RecipeRepository {
     return Future.value(_savedSearchRecipes); // 이전에 검색된 메시지 전송
   }
 
-  // 겜색된 레시피 저장
+  // 검색된 레시피 저장
   @override
   Future<List<Recipe>> saveSearchRecipes(List<Recipe> recipes) async {
+    final List<Recipe> newRecipes = List.from(recipes);
     _savedSearchRecipes.clear(); // 기존 데이터를 삭제
     _savedSearchRecipes.addAll(recipes); // 새 데이터를 추가
+    _savedSearchRecipes.addAll(newRecipes); // 새 데이터를 추가
     return _savedSearchRecipes; // 업데이트된 리스트 반환
   }
 }
