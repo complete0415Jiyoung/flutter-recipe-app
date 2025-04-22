@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/action/saved_recipe_action.dart';
 
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_screen.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_view_model.dart';
@@ -31,9 +32,16 @@ class _SavedRecipesScreenRootState extends State<SavedRecipesScreenRoot> {
       builder: (_, __) {
         return SavedRecipesScreen(
           state: state,
-          fetchSavedRecipe: viewModel.fetchSavedRecipe,
-          setRecipeCardState: viewModel.setRecipeCardState,
-          removeToggle: viewModel.removeToggle,
+          onAction: (SavedRecipeAction action) {
+            switch (action) {
+              case FetchSavedRecipe():
+                viewModel.fetchSavedRecipe();
+              case SetRecipeCardState():
+                viewModel.setRecipeCardState(action.recipe);
+              case RemoveToggle():
+                viewModel.removeToggle(action.targetRecipeId);
+            }
+          },
         );
       },
     );

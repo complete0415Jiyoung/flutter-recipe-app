@@ -3,21 +3,18 @@ import 'package:recipe_app/core/component/recipe_card.dart';
 import 'package:recipe_app/core/component/skeleton_effect.dart';
 import 'package:recipe_app/core/ui_styles/color_styles.dart';
 import 'package:recipe_app/core/ui_styles/text_styles.dart';
-import 'package:recipe_app/domain/model/recipe/recipe.dart';
+
+import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/action/saved_recipe_action.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/state/saved_recipe_state.dart';
 
 class SavedRecipesScreen extends StatefulWidget {
   final SavedRecipeState state;
-  final VoidCallback fetchSavedRecipe;
-  final void Function(Recipe recipe) setRecipeCardState;
-  final void Function(int targetRecipeId) removeToggle;
+  final void Function(SavedRecipeAction action) onAction;
 
   const SavedRecipesScreen({
     super.key,
     required this.state,
-    required this.fetchSavedRecipe,
-    required this.setRecipeCardState,
-    required this.removeToggle,
+    required this.onAction,
   });
 
   @override
@@ -70,13 +67,13 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
       itemCount: widget.state.savedRecipes.length,
       itemBuilder: (context, index) {
         final recipe = widget.state.savedRecipes[index];
-        widget.setRecipeCardState(recipe);
+        widget.onAction(SavedRecipeAction.setRecipeCardState(recipe));
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: RecipeCard(
             recipe: recipe,
             onBookMarkTap: () {
-              widget.removeToggle(recipe.recipeId);
+              widget.onAction(SavedRecipeAction.removeToggle(recipe.recipeId));
             },
           ),
         );
