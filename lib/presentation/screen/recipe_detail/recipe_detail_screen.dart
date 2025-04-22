@@ -5,20 +5,19 @@ import 'package:recipe_app/core/component/recipe_card.dart';
 import 'package:recipe_app/core/component/tabs.dart';
 import 'package:recipe_app/core/ui_styles/color_styles.dart';
 import 'package:recipe_app/core/ui_styles/text_styles.dart';
+import 'package:recipe_app/presentation/screen/recipe_detail/action/recipe_detail_action.dart';
 import 'package:recipe_app/presentation/screen/recipe_detail/state/recipe_detail_state.dart';
 
 class RecipeDetailScreen extends StatefulWidget {
   final int recipeId;
   final RecipeDetailState state;
-  final void Function(int recipeId) fetchRecipe;
-  final void Function(int index) changeTabIndex;
+  final void Function(RecipeDetailAction action) onAction;
 
   const RecipeDetailScreen({
     super.key,
     required this.recipeId,
     required this.state,
-    required this.fetchRecipe,
-    required this.changeTabIndex,
+    required this.onAction,
   });
 
   @override
@@ -160,7 +159,9 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
             Tabs(
               labels: const ['Ingrident', 'Procedure'],
               selectIndex: widget.state.selectedTabIndex,
-              onValueChange: widget.changeTabIndex,
+              onValueChange: (index) {
+                widget.onAction(RecipeDetailAction.changeTabIndex(index));
+              },
             ),
             const SizedBox(height: 20),
             Expanded(
@@ -253,7 +254,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                                   const SizedBox(width: 12),
                                   Expanded(
                                     child: Text(
-                                      step.content ?? '',
+                                      step.content,
                                       style: AppTextStyles.smallRegular(),
                                     ),
                                   ),

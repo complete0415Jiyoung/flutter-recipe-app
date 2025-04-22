@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/core/component/buttons.dart';
-import 'package:recipe_app/core/component/ingredient_item.dart';
-import 'package:recipe_app/core/component/recipe_card.dart';
-import 'package:recipe_app/core/component/tabs.dart';
-import 'package:recipe_app/core/ui_styles/color_styles.dart';
-import 'package:recipe_app/core/ui_styles/text_styles.dart';
+import 'package:recipe_app/presentation/screen/recipe_detail/action/recipe_detail_action.dart';
 import 'package:recipe_app/presentation/screen/recipe_detail/recipe_detail_screen.dart';
 import 'package:recipe_app/presentation/screen/recipe_detail/recipe_detail_view_model.dart';
 import 'package:recipe_app/presentation/screen/recipe_detail/state/recipe_detail_state.dart';
@@ -43,8 +38,14 @@ class _RecipeDetailScreenRootState extends State<RecipeDetailScreenRoot> {
         return RecipeDetailScreen(
           recipeId: recipeId,
           state: state,
-          fetchRecipe: viewModel.fetchRecipe,
-          changeTabIndex: viewModel.changeTabIndex,
+          onAction: (RecipeDetailAction action) {
+            switch (action) {
+              case FetchRecipe():
+                viewModel.fetchRecipe(action.recipeId);
+              case ChangeTabIndex():
+                viewModel.changeTabIndex(action.index);
+            }
+          },
         );
       },
     );
