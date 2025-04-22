@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/domain/model/filter/filter_enum.dart';
+import 'package:recipe_app/presentation/screen/main_naivation_bar/home/dish_card.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/home/recipe_category_selector.dart';
 import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/core/ui_styles/color_styles.dart';
@@ -38,13 +39,13 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             if (state.user != null) ...[
                               Text(
-                                state.user!.userId,
+                                'Hello ${state.user!.userId}',
                                 style: AppTextStyles.largeBold(
                                   color: ColorStyle.black,
                                 ),
                               ),
                               const Text(
-                                'Welcome Back!',
+                                'what are you cooking today?',
                                 style: TextStyle(
                                   fontSize: 14,
                                   color: ColorStyle.black,
@@ -143,6 +144,23 @@ class HomeScreen extends StatelessWidget {
               onCategorySelected: onCategorySelected,
               selectedCategory: state.category!,
             ),
+            const SizedBox(height: 20),
+
+            SizedBox(
+              height: 231,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal, // 수평 스크롤
+                itemCount: state.selectRecipes.length, // 음식 개수
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 10), // 간격 설정
+                    child: DishCard(recipe: state.selectRecipes[index]),
+                  );
+                },
+              ),
+            ),
+
+            const SizedBox(height: 20),
           ],
         ),
       ),

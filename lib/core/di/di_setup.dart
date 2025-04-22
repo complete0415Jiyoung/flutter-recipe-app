@@ -23,6 +23,7 @@ import 'package:recipe_app/domain/repository/procedure_repository.dart';
 import 'package:recipe_app/domain/repository/recipe_repository.dart';
 import 'package:recipe_app/domain/repository/user_repository.dart';
 import 'package:recipe_app/domain/use_case/fetch_recipe_use_case.dart';
+import 'package:recipe_app/domain/use_case/fetch_recipes_use_case.dart';
 import 'package:recipe_app/domain/use_case/filter_serch_recipe_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_book_marked_recipes_id_use_case.dart';
 import 'package:recipe_app/domain/use_case/get_login_user_info_use_case.dart';
@@ -83,6 +84,9 @@ void diSetup() {
   getIt.registerSingleton<FetchRecipeUseCase>(
     FetchRecipeUseCase(repository: getIt<RecipeRepository>()),
   );
+  getIt.registerSingleton<FetchRecipesUseCase>(
+    FetchRecipesUseCase(repository: getIt<RecipeRepository>()),
+  );
   getIt.registerSingleton<GetBookMarkedRecipesIdUseCase>(
     GetBookMarkedRecipesIdUseCase(repository: getIt<BookMarkRepository>()),
   );
@@ -101,7 +105,10 @@ void diSetup() {
 
   // 홈 화면
   getIt.registerFactory(
-    () => HomeViewModel(getLoginUserInfo: getIt<GetLoginUserInfoUseCase>()),
+    () => HomeViewModel(
+      getLoginUserInfo: getIt<GetLoginUserInfoUseCase>(),
+      fetchRecipesUseCase: getIt<FetchRecipesUseCase>(),
+    ),
   );
 
   // 저장된 레시피 화면

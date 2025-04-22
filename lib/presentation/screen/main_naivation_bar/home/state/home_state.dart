@@ -11,11 +11,13 @@ class HomeState with _$HomeState {
   final User? user;
   final Category? category;
   final List<Recipe> recipes;
+  final List<Recipe> selectRecipes;
   final bool isLoading;
   HomeState({
     this.user,
     this.category = Category.all,
     this.recipes = const [],
+    this.selectRecipes = const [],
     this.isLoading = false,
   });
 }
