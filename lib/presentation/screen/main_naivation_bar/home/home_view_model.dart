@@ -22,13 +22,23 @@ class HomeViewModel with ChangeNotifier {
     notifyListeners();
     final user = await _getLoginUserInfo.execute();
     final recipes = await _fetchRecipesUseCase.execute();
-    final selectRecipe =
-        recipes.where((recipe) => recipe.category == state.category).toList();
-    _state = state.copyWith(
-      user: user,
-      recipes: recipes,
-      selectRecipes: selectRecipe,
-    );
+
+    if (state.category == Category.all) {
+      _state = state.copyWith(
+        user: user,
+        recipes: recipes,
+        selectRecipes: recipes,
+      );
+    } else {
+      final selectRecipe =
+          recipes.where((recipe) => recipe.category == state.category).toList();
+      _state = state.copyWith(
+        user: user,
+        recipes: recipes,
+        selectRecipes: selectRecipe,
+      );
+    }
+
     notifyListeners();
   }
 
@@ -37,7 +47,12 @@ class HomeViewModel with ChangeNotifier {
         state.recipes
             .where((recipe) => recipe.category == state.category)
             .toList();
-    _state = state.copyWith(category: category, selectRecipes: selectRecipe);
+    if (category == Category.all) {
+      _state = state.copyWith(category: category, selectRecipes: state.recipes);
+    } else {
+      _state = state.copyWith(category: category, selectRecipes: selectRecipe);
+    }
+
     notifyListeners();
   }
 }
