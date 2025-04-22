@@ -3,7 +3,6 @@ import 'package:recipe_app/core/component/recipe_card.dart';
 import 'package:recipe_app/core/component/skeleton_effect.dart';
 import 'package:recipe_app/core/ui_styles/color_styles.dart';
 import 'package:recipe_app/core/ui_styles/text_styles.dart';
-
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/action/saved_recipe_action.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/state/saved_recipe_state.dart';
 

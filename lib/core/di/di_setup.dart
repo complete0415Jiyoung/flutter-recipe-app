@@ -109,7 +109,7 @@ void diSetup() {
   // 레시피 검색화면
   getIt.registerFactory(
     () => SearchRecipesViewModel(
-      GetSearchRecipeUseCase: getIt<GetSearchRecipeUseCase>(),
+      getSearchRecipeUseCase: getIt<GetSearchRecipeUseCase>(),
       saveSerchRecipeUseCase: getIt<SaveSerchRecipeUseCase>(),
       filterSerchRecipeUseCase: getIt<FilterSerchRecipeUseCase>(),
     ),
@@ -200,7 +200,7 @@ void mockNetworkError() {
   // 레시피 검색화면
   getIt.registerFactory(
     () => SearchRecipesViewModel(
-      GetSearchRecipeUseCase: getIt<GetSearchRecipeUseCase>(),
+      getSearchRecipeUseCase: getIt<GetSearchRecipeUseCase>(),
       saveSerchRecipeUseCase: getIt<SaveSerchRecipeUseCase>(),
       filterSerchRecipeUseCase: getIt<FilterSerchRecipeUseCase>(),
     ),
