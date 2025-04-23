@@ -39,7 +39,7 @@ class _DishCardState extends State<DishCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.replace('/recipe-detail/${widget.recipe.recipeId}');
+        context.push('/recipe-detail/${widget.recipe.recipeId}');
       },
       child: Stack(
         children: [
