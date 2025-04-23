@@ -149,11 +149,14 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 231,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal, // 수평 스크롤
-                itemCount: state.selectRecipes.length, // 음식 개수
+                scrollDirection: Axis.horizontal,
+                itemCount: state.selectRecipes.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.only(left: 10), // 간격 설정
+                    padding: EdgeInsets.only(
+                      left: index == 0 ? 30 : 0,
+                      right: 10,
+                    ),
                     child: DishCard(recipe: state.selectRecipes[index]),
                   );
                 },
