@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/home/home_screen.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/home/home_view_model.dart';
@@ -20,7 +19,7 @@ class _HomeScreenRootState extends State<HomeScreenRoot> {
   @override
   void initState() {
     super.initState();
-    widget.viewModel.getUserData();
+    widget.viewModel.getUserData(); // 초기화 시 한번 호출
   }
 
   @override
@@ -32,6 +31,9 @@ class _HomeScreenRootState extends State<HomeScreenRoot> {
           state: widget.viewModel.state,
           onCategorySelected: (category) {
             viewModel.updateSelectedCategory(category);
+          },
+          onClickBookMark: (recipeId) {
+            viewModel.onClickBookMark(recipeId);
           },
         );
       },

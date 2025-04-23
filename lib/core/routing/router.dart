@@ -2,13 +2,13 @@ import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/di/di_setup.dart';
 import 'package:recipe_app/core/routing/routes.dart';
 import 'package:recipe_app/presentation/example_screen/preview_main.dart';
-import 'package:recipe_app/presentation/screen/main_naivation_bar/home/home_screen.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/home/home_screen_root.dart';
+import 'package:recipe_app/presentation/screen/main_naivation_bar/home/home_view_model.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/main_navigation_bar.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/profile/profile_screen.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_screen_root.dart';
+import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/saved_recipes_view_model.dart';
 import 'package:recipe_app/presentation/screen/recipe_detail/recipe_detail_screen_root.dart';
-import 'package:recipe_app/presentation/screen/search_recipes/search_recipes_screen.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/search_recipes_screen_root.dart';
 import 'package:recipe_app/presentation/screen/sign_in/sign_in_screen.dart';
 import 'package:recipe_app/presentation/screen/sign_up/sign_up_screen.dart';
@@ -27,46 +27,31 @@ final GoRouter router = GoRouter(
     GoRoute(path: Routes.signIn, builder: (conttext, state) => SignInScreen()),
     GoRoute(path: Routes.signUp, builder: (conttext, state) => SignUpScreen()),
 
-    StatefulShellRoute.indexedStack(
-      builder: (context, state, navigationShell) {
-        return MainNavigationBar(navigationShell: navigationShell);
+    ShellRoute(
+      builder: (context, state, child) {
+        // 메인 네비게이션 바 반환
+        return MainNavigationBar(child: child);
       },
-      branches: [
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: Routes.home,
-              builder: (context, state) {
-                return HomeScreenRoot(viewModel: getIt());
-              },
-            ),
-          ],
+      routes: [
+        GoRoute(
+          path: Routes.home, // 홈 화면 경로
+          builder: (context, state) {
+            return HomeScreenRoot(viewModel: getIt());
+          },
         ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: Routes.savedRecipe,
-              builder: (context, state) {
-                return SavedRecipesScreenRoot(viewModel: getIt());
-              },
-            ),
-          ],
+        GoRoute(
+          path: Routes.savedRecipe, // 저장된 레시피 화면 경로
+          builder: (context, state) {
+            return SavedRecipesScreenRoot(viewModel: getIt());
+          },
         ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: Routes.notification,
-              builder: (context, state) => NotificationScreen(),
-            ),
-          ],
+        GoRoute(
+          path: Routes.notification, // 알림 화면 경로
+          builder: (context, state) => NotificationScreen(),
         ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: Routes.profile,
-              builder: (context, state) => ProfileScreen(),
-            ),
-          ],
+        GoRoute(
+          path: Routes.profile, // 프로필 화면 경로
+          builder: (context, state) => ProfileScreen(),
         ),
       ],
     ),
