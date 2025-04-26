@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/component/rating_dialog.dart';
+import 'package:recipe_app/core/component/share_dialog.dart';
 import 'package:recipe_app/core/ui_styles/color_styles.dart';
 import 'package:recipe_app/core/ui_styles/text_styles.dart';
 
@@ -22,6 +23,20 @@ class _RecipePopupMenuState extends State<RecipePopupMenu> {
           buttonTitle: 'Send',
           onChange: (int rating) {
             print('선택한 별점: $rating');
+          },
+        );
+      },
+    );
+  }
+
+  void _showShareDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return ShareDialog(
+          url: 'app.Recipe.co/recipe/1',
+          onClick: (String value) {
+            print('모야: $value');
           },
         );
       },
@@ -75,8 +90,8 @@ class _RecipePopupMenuState extends State<RecipePopupMenu> {
               icon: Icons.share,
               text: 'Share',
               onTap: () {
-                print('Share selected');
                 Navigator.pop(context);
+                _showShareDialog(context);
               },
             ),
 

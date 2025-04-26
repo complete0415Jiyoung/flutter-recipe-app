@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/core/component/buttons/buttons.dart';
+import 'package:flutter/services.dart';
 import 'package:recipe_app/core/ui_styles/color_styles.dart';
 import 'package:recipe_app/core/ui_styles/text_styles.dart';
 
@@ -14,65 +14,114 @@ class ShareDialog extends StatefulWidget {
 }
 
 class _ShareDialogState extends State<ShareDialog> {
+  void _showCustomSnackBar(BuildContext context) {
+    final snackBar = SnackBar(
+      content: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+              decoration: BoxDecoration(
+                color: ColorStyle.white,
+                borderRadius: BorderRadius.circular(3.63),
+              ),
+              child: Text(
+                'Link Copied',
+                style: AppTextStyles.smallRegular().copyWith(
+                  color: ColorStyle.label,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      duration: const Duration(seconds: 2),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20),
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: ColorStyle.white,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-              offset: const Offset(0, 4),
-            ),
-          ],
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Recipe Link', style: AppTextStyles.mediumBold()),
-            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.close, color: ColorStyle.gray2, size: 10),
+                ),
+              ],
+            ),
+            Text('Recipe Link', style: AppTextStyles.largeBold()),
+            const SizedBox(height: 10),
             Text(
               'Copy recipe link and share your recipe link with friends and family.',
               style: AppTextStyles.smallRegular().copyWith(
-                color: ColorStyle.gray4,
+                color: ColorStyle.gray2,
               ),
-              textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               decoration: BoxDecoration(
                 color: ColorStyle.gray4,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(9),
               ),
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(
-                      widget.url,
-                      style: AppTextStyles.smallRegular().copyWith(
-                        color: ColorStyle.gray4,
+                    child: Padding(
+                      padding: const EdgeInsets.all(14),
+                      child: Text(
+                        widget.url,
+                        style: AppTextStyles.smallRegular(
+                          color: ColorStyle.label,
+                        ).copyWith(fontWeight: FontWeight.w500),
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Buttons(
-                    text: 'Copy Link',
-                    size: ButtonSize.small,
-                    onPressed: () {
-                      // Clipboard.setData(ClipboardData(text: url));
+                  GestureDetector(
+                    onTap: () {
+                      Clipboard.setData(ClipboardData(text: widget.url));
                       Navigator.pop(context);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('링크가 복사되었습니다!')),
-                      );
+                      _showCustomSnackBar(context);
                     },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 14,
+                      ),
+                      decoration: BoxDecoration(
+                        color: ColorStyle.primary100,
+                        borderRadius: BorderRadius.circular(9),
+                      ),
+                      child: Text(
+                        'Copy Link',
+                        style: AppTextStyles.smallBold().copyWith(
+                          color: ColorStyle.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
