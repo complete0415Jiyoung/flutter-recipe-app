@@ -57,14 +57,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                   },
                   child: Icon(Icons.arrow_back, color: ColorStyle.label),
                 ),
-
-                // GestureDetector(
-                //   onTap: () {
-                //     print('모달들어올자리');
-                //   },
-                //   child: Icon(Icons.more_horiz, color: ColorStyle.label),
-                // ),
-                RecipePopupMenu(),
+                RecipePopupMenu(recipeId: widget.recipeId),
               ],
             ),
             const SizedBox(height: 10),

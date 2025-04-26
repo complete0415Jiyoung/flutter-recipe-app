@@ -5,9 +5,8 @@ import 'package:recipe_app/core/ui_styles/text_styles.dart';
 
 class ShareDialog extends StatefulWidget {
   final String url;
-  final void Function(String) onClick;
 
-  const ShareDialog({super.key, required this.url, required this.onClick});
+  const ShareDialog({super.key, required this.url});
 
   @override
   State<ShareDialog> createState() => _ShareDialogState();

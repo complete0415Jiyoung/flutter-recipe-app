@@ -7,7 +7,8 @@ import 'package:recipe_app/core/ui_styles/text_styles.dart';
 enum PopupItem { share, rateRecipe, review, unsave }
 
 class RecipePopupMenu extends StatefulWidget {
-  const RecipePopupMenu({super.key});
+  final int recipeId;
+  const RecipePopupMenu({super.key, required this.recipeId});
 
   @override
   State<RecipePopupMenu> createState() => _RecipePopupMenuState();
@@ -33,12 +34,7 @@ class _RecipePopupMenuState extends State<RecipePopupMenu> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return ShareDialog(
-          url: 'app.Recipe.co/recipe/1',
-          onClick: (String value) {
-            print('모야: $value');
-          },
-        );
+        return ShareDialog(url: 'app.Recipe.co/recipe/${widget.recipeId}');
       },
     );
   }
