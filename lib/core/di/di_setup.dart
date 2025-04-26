@@ -24,6 +24,7 @@ import 'package:recipe_app/domain/repository/recipe_repository.dart';
 import 'package:recipe_app/domain/repository/user_repository.dart';
 import 'package:recipe_app/domain/use_case/book_mark/add_book_mark_use_case.dart';
 import 'package:recipe_app/domain/use_case/book_mark/remove_book_mark_use_case.dart';
+import 'package:recipe_app/domain/use_case/book_mark/stream_book_mark_use_case.dart';
 import 'package:recipe_app/domain/use_case/recipe/fetch_recipe_use_case.dart';
 import 'package:recipe_app/domain/use_case/recipe/fetch_recipes_use_case.dart';
 import 'package:recipe_app/domain/use_case/recipe/filter_serch_recipe_use_case.dart';
@@ -98,6 +99,9 @@ void diSetup() {
   getIt.registerSingleton<AddBookMarkUseCase>(
     AddBookMarkUseCase(repository: getIt<BookMarkRepository>()),
   );
+  getIt.registerSingleton<StreamBookMarkUseCase>(
+    StreamBookMarkUseCase(repository: getIt<BookMarkRepository>()),
+  );
   getIt.registerSingleton<GetRecipesByIdsUseCase>(
     GetRecipesByIdsUseCase(repository: getIt<RecipeRepository>()),
   );
@@ -118,6 +122,7 @@ void diSetup() {
       removeBookMarkUseCase: getIt<RemoveBookMarkUseCase>(),
       addBookMarkUseCase: getIt<AddBookMarkUseCase>(),
       getLoginUserInfo: getIt<GetLoginUserInfoUseCase>(),
+      streamBookMarkUseCase: getIt<StreamBookMarkUseCase>(),
       fetchRecipesUseCase: getIt<FetchRecipesUseCase>(),
     ),
   );
@@ -125,6 +130,7 @@ void diSetup() {
   // 저장된 레시피 화면
   getIt.registerFactory(
     () => SavedRecipesViewModel(
+      streamBookMarkUseCase: getIt<StreamBookMarkUseCase>(),
       removeBookMarkUseCase: getIt<RemoveBookMarkUseCase>(),
       getLoginUserInfo: getIt<GetLoginUserInfoUseCase>(),
       getBookMarkedRecipesIdUseCase: getIt<GetBookMarkedRecipesIdUseCase>(),
@@ -217,6 +223,7 @@ void mockNetworkError() {
   // 저장된 레시피 화면
   getIt.registerFactory(
     () => SavedRecipesViewModel(
+      streamBookMarkUseCase: getIt<StreamBookMarkUseCase>(),
       removeBookMarkUseCase: getIt<RemoveBookMarkUseCase>(),
       getLoginUserInfo: getIt<GetLoginUserInfoUseCase>(),
       getBookMarkedRecipesIdUseCase: getIt<GetBookMarkedRecipesIdUseCase>(),
