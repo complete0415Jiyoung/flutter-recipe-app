@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:recipe_app/core/ui_styles/color_styles.dart';
 import 'package:recipe_app/core/ui_styles/text_styles.dart';
 
-class ShareDialog extends StatefulWidget {
+class ShareDialog extends StatelessWidget {
   final String url;
+  final void Function(String link) onTab;
 
-  const ShareDialog({super.key, required this.url});
+  const ShareDialog({super.key, required this.url, required this.onTab});
 
-  @override
-  State<ShareDialog> createState() => _ShareDialogState();
-}
-
-class _ShareDialogState extends State<ShareDialog> {
   void _showCustomSnackBar(BuildContext context) {
     final snackBar = SnackBar(
       content: Center(
@@ -90,7 +85,7 @@ class _ShareDialogState extends State<ShareDialog> {
                     child: Padding(
                       padding: const EdgeInsets.all(14),
                       child: Text(
-                        widget.url,
+                        url,
                         style: AppTextStyles.smallRegular(
                           color: ColorStyle.label,
                         ).copyWith(fontWeight: FontWeight.w500),
@@ -101,7 +96,7 @@ class _ShareDialogState extends State<ShareDialog> {
                   const SizedBox(width: 8),
                   GestureDetector(
                     onTap: () {
-                      Clipboard.setData(ClipboardData(text: widget.url));
+                      onTab(url);
                       Navigator.pop(context);
                       _showCustomSnackBar(context);
                     },
