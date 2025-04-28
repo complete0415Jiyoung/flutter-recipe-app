@@ -8,7 +8,7 @@ import 'package:recipe_app/core/ui_styles/text_styles.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/action/search_recipe_action.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/state/search_recipe_state.dart';
 
-class SearchRecipesScreen extends StatefulWidget {
+class SearchRecipesScreen extends StatelessWidget {
   final SearchRecipeState state;
   // final void Function(String keyword) searchRecipe;
   // final VoidCallback showFilter;
@@ -22,11 +22,6 @@ class SearchRecipesScreen extends StatefulWidget {
     required this.onAction,
   });
 
-  @override
-  State<SearchRecipesScreen> createState() => _SearchRecipesScreenState();
-}
-
-class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,14 +48,12 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
             // 검색 필드
             SearchField(
               placeHolder: 'Search recipe',
-              value: widget.state.keyword,
+              value: state.keyword,
               onValueChange: (value) {
-                widget.onAction(
-                  SearchRecipeAction.searchRecipe(value),
-                ); // 키워드 업데이트
+                onAction(SearchRecipeAction.searchRecipe(value)); // 키워드 업데이트
               },
               onFilterPressed: () {
-                widget.onAction(SearchRecipeAction.showFilter());
+                onAction(SearchRecipeAction.showFilter());
               },
             ),
             const SizedBox(height: 20),
@@ -81,22 +74,22 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          widget.state.keyword.isEmpty &&
-                  widget.state.filterSearchState.category == Category.all &&
-                  widget.state.filterSearchState.rate == 0 &&
-                  widget.state.filterSearchState.time == Time.all
+          state.keyword.isEmpty &&
+                  state.filterSearchState.category == Category.all &&
+                  state.filterSearchState.rate == 0 &&
+                  state.filterSearchState.time == Time.all
               ? 'Recent Search'
               : 'Search recipe',
           style: AppTextStyles.normalBold(),
         ),
 
-        widget.state.keyword.isEmpty &&
-                widget.state.filterSearchState.category == Category.all &&
-                widget.state.filterSearchState.rate == 0 &&
-                widget.state.filterSearchState.time == Time.all
+        state.keyword.isEmpty &&
+                state.filterSearchState.category == Category.all &&
+                state.filterSearchState.rate == 0 &&
+                state.filterSearchState.time == Time.all
             ? const SizedBox.shrink() // null 대신 사용:
             : Text(
-              '${widget.state.filterRecipes.length} results',
+              '${state.filterRecipes.length} results',
               style: AppTextStyles.smallRegular(color: ColorStyle.gray3),
             ),
       ],
@@ -104,9 +97,9 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
   }
 
   Widget buildReasult() {
-    final recipes = widget.state.filterRecipes;
+    final recipes = state.filterRecipes;
     // 로딩 상태
-    if (widget.state.isLoading) {
+    if (state.isLoading) {
       return GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // 2열 레이아웃

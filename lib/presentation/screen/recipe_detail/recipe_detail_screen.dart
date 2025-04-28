@@ -57,11 +57,15 @@ class RecipeDetailScreen extends StatelessWidget {
                     showDialog(
                       context: context,
                       barrierDismissible: true, // 배경 클릭시 창 닫기 허용
-                      barrierColor: Colors.black.withOpacity(0.5), // 배경 어둡게 설정
+                      barrierColor: Colors.black.withValues(
+                        alpha: 0.5,
+                      ), // 배경 어둡게 설정
                       builder: (BuildContext context) {
                         return RecipePopupMenu(
                           recipeId: recipeId,
-                          onTabMenu: (menu) => onAction(RecipeDetailAction.onTapMenu(menu)),
+                          onTabMenu:
+                              (menu) =>
+                                  onAction(RecipeDetailAction.onTapMenu(menu)),
                         );
                       },
                     );
@@ -233,7 +237,7 @@ class RecipeDetailScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(16),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(0.03),
+                                    color: Colors.black.withValues(alpha: 0.03),
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),

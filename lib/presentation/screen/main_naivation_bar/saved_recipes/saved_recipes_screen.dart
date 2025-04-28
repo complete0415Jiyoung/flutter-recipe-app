@@ -6,7 +6,7 @@ import 'package:recipe_app/core/ui_styles/text_styles.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/action/saved_recipe_action.dart';
 import 'package:recipe_app/presentation/screen/main_naivation_bar/saved_recipes/state/saved_recipe_state.dart';
 
-class SavedRecipesScreen extends StatefulWidget {
+class SavedRecipesScreen extends StatelessWidget {
   final SavedRecipeState state;
   final void Function(SavedRecipeAction action) onAction;
 
@@ -16,11 +16,6 @@ class SavedRecipesScreen extends StatefulWidget {
     required this.onAction,
   });
 
-  @override
-  State<SavedRecipesScreen> createState() => _SavedRecipesScreenState();
-}
-
-class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +37,7 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
   }
 
   Widget buildBody() {
-    if (widget.state.isLoading) {
+    if (state.isLoading) {
       return ListView.builder(
         itemCount: 5,
         itemBuilder:
@@ -53,26 +48,23 @@ class _SavedRecipesScreenState extends State<SavedRecipesScreen> {
       );
     }
 
-    if (widget.state.errorMessage.isNotEmpty) {
+    if (state.errorMessage.isNotEmpty) {
       return Center(
-        child: Text(
-          widget.state.errorMessage,
-          style: AppTextStyles.mediumBold(),
-        ),
+        child: Text(state.errorMessage, style: AppTextStyles.mediumBold()),
       );
     }
 
     return ListView.builder(
-      itemCount: widget.state.savedRecipes.length,
+      itemCount: state.savedRecipes.length,
       itemBuilder: (context, index) {
-        final recipe = widget.state.savedRecipes[index];
-        widget.onAction(SavedRecipeAction.setRecipeCardState(recipe));
+        final recipe = state.savedRecipes[index];
+        onAction(SavedRecipeAction.setRecipeCardState(recipe));
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: RecipeCard(
             recipe: recipe,
             onBookMarkTap: () {
-              widget.onAction(SavedRecipeAction.removeToggle(recipe.recipeId));
+              onAction(SavedRecipeAction.removeToggle(recipe.recipeId));
             },
           ),
         );

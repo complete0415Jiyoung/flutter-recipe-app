@@ -63,7 +63,7 @@ class CustomCurvedNavigationBar extends StatelessWidget {
         color: ColorStyle.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1), // 그림자 색상 (투명도 포함)
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 10, // 그림자의 블러 정도
             offset: Offset(0, -5), // 그림자의 위치 (x, y)
           ),

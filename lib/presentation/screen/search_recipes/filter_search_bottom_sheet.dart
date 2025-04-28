@@ -7,7 +7,7 @@ import 'package:recipe_app/core/component/buttons/rating_button.dart';
 import 'package:recipe_app/core/ui_styles/text_styles.dart';
 import 'package:recipe_app/presentation/screen/search_recipes/state/search_recipe_state.dart';
 
-class FilterSearchBottomSheet extends StatefulWidget {
+class FilterSearchBottomSheet extends StatelessWidget {
   final SearchRecipeState state;
   // final void Function(SearchRecipesEvent event) onEvent;
   final void Function({Time? time, int? rate, Category? category})
@@ -23,14 +23,8 @@ class FilterSearchBottomSheet extends StatefulWidget {
   });
 
   @override
-  State<FilterSearchBottomSheet> createState() =>
-      _FilterSearchBottomSheetState();
-}
-
-class _FilterSearchBottomSheetState extends State<FilterSearchBottomSheet> {
-  @override
   Widget build(BuildContext context) {
-    final filterState = widget.state.filterSearchState;
+    final filterState = state.filterSearchState;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -54,7 +48,7 @@ class _FilterSearchBottomSheetState extends State<FilterSearchBottomSheet> {
                         time.name.substring(1), // 첫 문자만 대문자로
                     isSelected: filterState.time == time,
                     onChange: () {
-                      widget.updateFilterSearchState(time: time);
+                      updateFilterSearchState(time: time);
                     },
                   );
                 }).toList(),
@@ -74,7 +68,7 @@ class _FilterSearchBottomSheetState extends State<FilterSearchBottomSheet> {
                 isSelected: filterState.rate == rate,
                 icon: Icons.star,
                 onChange: () {
-                  widget.updateFilterSearchState(rate: rate);
+                  updateFilterSearchState(rate: rate);
                 },
               );
             }),
@@ -98,7 +92,7 @@ class _FilterSearchBottomSheetState extends State<FilterSearchBottomSheet> {
                         category.name.substring(1), // 카테고리 이름
                     isSelected: filterState.category == category,
                     onChange: () {
-                      widget.updateFilterSearchState(category: category);
+                      updateFilterSearchState(category: category);
                     },
                   );
                 }).toList(),
@@ -111,7 +105,7 @@ class _FilterSearchBottomSheetState extends State<FilterSearchBottomSheet> {
               text: 'Filter',
               size: ButtonSize.small,
               onPressed: () {
-                widget.filterSearchRecipe();
+                filterSearchRecipe();
                 Navigator.of(context).pop();
               },
             ),
